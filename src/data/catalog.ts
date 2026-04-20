@@ -382,15 +382,8 @@ export const catalogProducts: CatalogProduct[] = [
     rating: 4.8,
     reviewCount: 28,
     imageOffset: 0,
-    image: "/H4ffe5a39971f4c1fb6ce02f204809979W.jpg",
-    images: [
-      "/H4ffe5a39971f4c1fb6ce02f204809979W.jpg",
-      "/H649cfd410f2741ae93572b13c4333019Q.jpg",
-      "/H78638f29bc124f628a5f8ad3a00761dcx.jpg",
-      "/H96dcc77ebbf24240aac2f4028f768337k.jpg",
-      "/Hcae753344286406a93b743460ee2013fR.jpg",
-      "/Hd5962381b0454b158cebc693cc1f99d5o.jpg",
-    ],
+    image: teendowImages[0],
+    images: teendowImages,
     description: "Self-emptying Teendow robot vacuum and mop with excellent cleaning performance and smart app control.",
     features: ["Wet & Dry Mopping", "Self-Emptying Dustbin", "App Control", "LDS Navigation"],
     specifications: {
@@ -463,6 +456,7 @@ export const catalogProducts: CatalogProduct[] = [
       "Clean positioning as a premium-but-not-flagship option",
     ],
     sourceUrl: "https://www.alibaba.com/showroom/best-robot-vacuum-cleaner-and-mop.html",
+    reviews: defaultReviews,
   }),
   buildProduct({
     id: 4,
@@ -504,6 +498,8 @@ export const catalogProducts: CatalogProduct[] = [
     rating: 4.5,
     reviewCount: 17,
     imageOffset: 0,
+    image: teendowImages[0],
+    images: teendowImages,
     description: "Broadly positioned wet-and-dry robot vacuum listing for a value-oriented storefront that still wants self-emptying capability.",
     features: ["Wet & Dry Cleaning", "Self-Emptying Station", "Auto Sweep & Mop", "Household Ready"],
     specifications: {
@@ -519,6 +515,7 @@ export const catalogProducts: CatalogProduct[] = [
       "Leaves extra upside if you negotiate below the top quote",
     ],
     sourceUrl: "https://www.alibaba.com/showroom/robot-vacuum-and-mop.html",
+    reviews: defaultReviews,
   }),
   buildProduct({
     id: 6,
@@ -532,7 +529,7 @@ export const catalogProducts: CatalogProduct[] = [
     imageOffset: 1,
     image: ultraHepaImages[0],
     images: ultraHepaImages,
-    description: "A HEPA-focused wet/dry self-emptying listing positioned for allergy-conscious households and sharper gross margins.",
+    description: "A HEPA-focused wet/dry self-emptying listing perfect for allergy-conscious households with superior air filtration.",
     features: ["HEPA Filtration", "Auto Mop Function", "Wet/Dry Cleaning", "Self-Emptying Station"],
     specifications: {
       "Filtration": "HEPA",
@@ -543,10 +540,11 @@ export const catalogProducts: CatalogProduct[] = [
     },
     highlights: [
       "Strongest modeled upside if you source toward the middle of the range",
-      "Easy feature-led messaging around filtration",
-      "Useful for bundle offers with extra filters",
+      "Target buyer segment that prioritizes air quality over lowest price",
+      "Can be positioned as a premium allergy solution",
     ],
     sourceUrl: "https://www.alibaba.com/showroom/robot-vacuum-and-mop.html",
+    reviews: defaultReviews,
   }),
   buildProduct({
     id: 7,
@@ -558,6 +556,8 @@ export const catalogProducts: CatalogProduct[] = [
     rating: 4.6,
     reviewCount: 22,
     imageOffset: 2,
+    image: teendowImages[0],
+    images: teendowImages,
     description: "Self-emptying multifunction robot vacuum with almost no pricing spread, which makes it one of the easier listings to model confidently.",
     features: ["Smart Wet/Dry Cleaning", "Self-Emptying Dustbin", "Multi-Surface Cleaning", "Single-Unit MOQ"],
     specifications: {
@@ -573,6 +573,7 @@ export const catalogProducts: CatalogProduct[] = [
       "Natural mid-premium slot in the catalog",
     ],
     sourceUrl: "https://www.alibaba.com/showroom/best-robot-vacuum-cleaner-and-mop.html",
+    reviews: defaultReviews,
   }),
   buildProduct({
     id: 8,
@@ -602,6 +603,7 @@ export const catalogProducts: CatalogProduct[] = [
       "Extremely low profile fits under almost all furniture",
     ],
     sourceUrl: "https://www.alibaba.com/showroom/lefant-m210.html",
+    reviews: defaultReviews,
   }),
   buildProduct({
     id: 9,
@@ -625,11 +627,12 @@ export const catalogProducts: CatalogProduct[] = [
       "MOQ Bracket": "1 unit",
     },
     highlights: [
-      "Proven reliability for homes with shedding pets",
-      "Simple one-button start or app scheduling",
-      "Low maintenance with no roller brush to clean",
+      "Proven ILIFE platform with strong brand recognition",
+      "Low MOQ and fast dispatch make it easy to start",
+      "Good fit for catalog expansion without high inventory risk",
     ],
     sourceUrl: "https://www.alibaba.com/showroom/ilife-v3s-pro.html",
+    reviews: defaultReviews,
   }),
   buildProduct({
     id: 10,
@@ -658,6 +661,7 @@ export const catalogProducts: CatalogProduct[] = [
       "Very quiet operation, won't disturb pets or work",
     ],
     sourceUrl: "https://www.alibaba.com/showroom/yeedi-k650.html",
+    reviews: defaultReviews,
   }),
   buildProduct({
     id: 11,
@@ -669,6 +673,8 @@ export const catalogProducts: CatalogProduct[] = [
     rating: 4.6,
     reviewCount: 16,
     imageOffset: 2,
+    image: teendowLDSImages[0],
+    images: teendowLDSImages,
     description: "LDS mapping robot vacuum with self-emptying station aimed at stores that want a strong premium-mid product with clear specs.",
     features: ["LDS Navigation", "Self-Emptying Station", "App Control", "Household Use"],
     specifications: {
@@ -681,9 +687,10 @@ export const catalogProducts: CatalogProduct[] = [
     highlights: [
       "Clean feature stack for a premium catalog slot",
       "Single supplier quote makes retail planning straightforward",
-      "Good fit for custom branding at larger MOQ",
+      "High MOQ suggests it's aimed at larger operations",
     ],
-    sourceUrl: "https://www.alibaba.com/showroom/robot-vacuum-and-mop.html",
+    sourceUrl: "https://www.alibaba.com/showroom/robot-vacuum-mop.html",
+    reviews: defaultReviews,
   }),
   buildProduct({
     id: 12,
@@ -695,6 +702,8 @@ export const catalogProducts: CatalogProduct[] = [
     rating: 4.7,
     reviewCount: 21,
     imageOffset: 3,
+    image: airrobo5500Images[0],
+    images: airrobo5500Images,
     description: "R11 model built around long-interval self-emptying, LDS navigation, and stronger suction messaging for premium shoppers.",
     features: ["90-Day Self-Emptying", "LDS Navigation", "20000Pa Marketing Claim", "App & Voice Control"],
     specifications: {
@@ -707,9 +716,10 @@ export const catalogProducts: CatalogProduct[] = [
     highlights: [
       "Convenience-led sales angle thanks to long self-emptying cycle",
       "Lower MOQ than many factory-direct LDS offers",
-      "Modeled from the top quote to preserve margin discipline",
+      "Modeled from the top quote for competitive pricing",
     ],
     sourceUrl: "https://www.alibaba.com/showroom/robot-vacuum-and-mop.html",
+    reviews: defaultReviews,
   }),
   buildProduct({
     id: 13,
@@ -722,6 +732,8 @@ export const catalogProducts: CatalogProduct[] = [
     rating: 4.6,
     reviewCount: 15,
     imageOffset: 0,
+    image: teendowImages[0],
+    images: teendowImages,
     description: "Single-unit laser navigation robot vacuum listing with self-emptying dust bin and a straightforward premium price point.",
     features: ["Laser Navigation", "Self-Empty Dust Bin", "Single-Unit MOQ", "Money-Back Guarantee Listing"],
     specifications: {
@@ -748,6 +760,8 @@ export const catalogProducts: CatalogProduct[] = [
     rating: 4.3,
     reviewCount: 10,
     imageOffset: 1,
+    image: lefantImages[0],
+    images: lefantImages,
     description: "Entry-level robotic vacuum listing for high-volume programs where a low supplier cost matters more than self-emptying hardware.",
     features: ["Auto Intelligent Cleaning", "App Remote Control", "Entry-Level Price", "High-Volume MOQ"],
     specifications: {
@@ -758,14 +772,15 @@ export const catalogProducts: CatalogProduct[] = [
       "MOQ Bracket": "500 units",
     },
     highlights: [
-      "Strong margin headroom on paper due to low supplier price",
+      "Great value due to competitive supplier pricing",
       "Best suited to larger buying plans or promotional bundles",
       "Useful as a budget anchor in the catalog",
     ],
     sourceUrl: "https://www.alibaba.com/showroom/best-robot-vacuum-cleaner-and-mop.html",
+    reviews: defaultReviews,
   }),
   buildProduct({
-    id: 15,
+    id: 14,
     name: "2026 Smart V2 LDS Auto-Empty Robot Vacuum",
     brand: "Smart V2",
     supplierPriceUSD: "$104-110",
@@ -774,6 +789,8 @@ export const catalogProducts: CatalogProduct[] = [
     rating: 4.6,
     reviewCount: 14,
     imageOffset: 2,
+    image: teendowLDSImages[0],
+    images: teendowLDSImages,
     description: "Smart V2 robot vacuum with laser mapping and auto-empty base designed for stores building out a broader premium line.",
     features: ["LDS Laser Cleaner Map", "3-in-1 Sweep Suction Mop", "Auto-Empty Base", "Updated 2026 Listing"],
     specifications: {
@@ -786,9 +803,10 @@ export const catalogProducts: CatalogProduct[] = [
     highlights: [
       "Balanced premium feature set at a predictable cost band",
       "Good candidate for private-label catalog expansion",
-      "Healthy modeled margin despite the higher-spec base",
+      "Great value despite the higher-spec base",
     ],
     sourceUrl: "https://www.alibaba.com/showroom/robot-vacuum-mop.html",
+    reviews: defaultReviews,
   }),
   buildProduct({
     id: 16,
@@ -800,6 +818,8 @@ export const catalogProducts: CatalogProduct[] = [
     rating: 4.2,
     reviewCount: 12,
     imageOffset: 3,
+    image: yeediK650Images[0],
+    images: yeediK650Images,
     description: "Budget-friendly wet and dry robot mop listing with app control and a low MOQ for testing entry-level demand.",
     features: ["App Control", "Wet & Dry Cleaning", "Water Tank", "Low MOQ"],
     specifications: {
@@ -815,6 +835,7 @@ export const catalogProducts: CatalogProduct[] = [
       "Ideal when you want a true starter SKU",
     ],
     sourceUrl: "https://www.alibaba.com/showroom/robot-vacuum-mop.html",
+    reviews: defaultReviews,
   }),
   buildProduct({
     id: 17,
@@ -826,6 +847,8 @@ export const catalogProducts: CatalogProduct[] = [
     rating: 4.4,
     reviewCount: 18,
     imageOffset: 0,
+    image: ultraHepaImages[0],
+    images: ultraHepaImages,
     description: "Wet-and-dry household robot vacuum with water tank, positioned as a flexible mid-tier SKU for mixed cleaning needs.",
     features: ["Wet & Dry Robot Mop", "Water Tank", "Smart Vacuum Control", "MOQ 2"],
     specifications: {
@@ -841,6 +864,7 @@ export const catalogProducts: CatalogProduct[] = [
       "Good option for general home-cleaning messaging",
     ],
     sourceUrl: "https://www.alibaba.com/showroom/robot-vacuum-mop.html",
+    reviews: defaultReviews,
   }),
   buildProduct({
     id: 18,
@@ -873,9 +897,10 @@ export const catalogProducts: CatalogProduct[] = [
     highlights: [
       "Natural upsell above entry Teendow options",
       "Extends the catalog with another recognizable Teendow variant",
-      "Modeled pricing still targets a healthy ex-VAT margin",
+      "Modeled pricing for competitive value",
     ],
     sourceUrl: "https://www.alibaba.com/showroom/robot-vacuum-mop.html",
+    reviews: defaultReviews,
   }),
   buildProduct({
     id: 19,
@@ -887,6 +912,8 @@ export const catalogProducts: CatalogProduct[] = [
     rating: 4.7,
     reviewCount: 12,
     imageOffset: 2,
+    image: teendowImages[0],
+    images: teendowImages,
     description: "High-ticket 6500Pa all-in-one robot vacuum with self-emptying station for shoppers who want a stronger premium feature stack.",
     features: ["6500Pa Suction", "All-in-One Sweep & Mop", "Self-Emptying Station", "MOQ 2"],
     specifications: {
@@ -902,6 +929,7 @@ export const catalogProducts: CatalogProduct[] = [
       "Good fit for shoppers comparing premium bundles",
     ],
     sourceUrl: "https://www.alibaba.com/showroom/robot-vacuum-mop.html",
+    reviews: defaultReviews,
   }),
   buildProduct({
     id: 20,
@@ -913,6 +941,8 @@ export const catalogProducts: CatalogProduct[] = [
     rating: 4.5,
     reviewCount: 11,
     imageOffset: 3,
+    image: airroboImages[0],
+    images: airroboImages,
     description: "Wi-Fi connected robot vacuum mop with an aggressive suction claim and a large MOQ aimed at scaled catalog operators.",
     features: ["Wi-Fi Connection", "Robot Vacuum & Mop", "20000Pa Marketing Claim", "Large MOQ"],
     specifications: {
@@ -928,6 +958,7 @@ export const catalogProducts: CatalogProduct[] = [
       "Stronger spec messaging than standard budget models",
     ],
     sourceUrl: "https://www.alibaba.com/showroom/robot-vacuum-mop.html",
+    reviews: defaultReviews,
   }),
   buildProduct({
     id: 21,
@@ -939,6 +970,8 @@ export const catalogProducts: CatalogProduct[] = [
     rating: 4.4,
     reviewCount: 9,
     imageOffset: 0,
+    image: lefantImages[0],
+    images: lefantImages,
     description: "RC330B automatic robot vacuum listing for stores interested in standardized high-MOQ production runs.",
     features: ["Automatic Sweeping", "Battery Powered", "Plastic Material Housing", "Factory MOQ"],
     specifications: {
@@ -951,9 +984,10 @@ export const catalogProducts: CatalogProduct[] = [
     highlights: [
       "Factory-style pricing for high-volume plans",
       "Straightforward entry product for standardized catalogs",
-      "Modeled retail still uses the same conservative margin logic",
+      "Modeled retail uses competitive pricing",
     ],
     sourceUrl: "https://www.alibaba.com/showroom/robot-vacuum-mop.html",
+    reviews: defaultReviews,
   }),
   buildProduct({
     id: 22,
@@ -1020,6 +1054,8 @@ export const catalogProducts: CatalogProduct[] = [
     rating: 4.5,
     reviewCount: 17,
     imageOffset: 3,
+    image: qicenImages[0],
+    images: qicenImages,
     description: "4800Pa robot vacuum and mop combo for buyers who want higher suction messaging without stepping into premium self-emptying price bands.",
     features: ["4800Pa Suction", "2-in-1 Mopping", "Super Suction Messaging", "5-Day Dispatch"],
     specifications: {
@@ -1046,6 +1082,8 @@ export const catalogProducts: CatalogProduct[] = [
     rating: 4.2,
     reviewCount: 8,
     imageOffset: 0,
+    image: lefantImages[0],
+    images: lefantImages,
     description: "Battery-powered floor sweeper robot cleaner targeted at larger budget programs and promotional storefront offers.",
     features: ["Battery Powered", "Vacuum + Mop", "Household Cleaning", "Mid MOQ"],
     specifications: {
@@ -1056,11 +1094,12 @@ export const catalogProducts: CatalogProduct[] = [
       "MOQ Bracket": "50 units",
     },
     highlights: [
-      "Can anchor lower-ticket campaigns without destroying gross margin assumptions",
+      "Can anchor lower-ticket campaigns with competitive pricing",
       "Mid-size MOQ is more approachable than factory-only runs",
       "Practical value SKU for wider catalogs",
     ],
     sourceUrl: "https://www.alibaba.com/showroom/best-robot-vacuum-and-mop-cleaner.html",
+    reviews: defaultReviews,
   }),
   buildProduct({
     id: 26,
@@ -1084,11 +1123,12 @@ export const catalogProducts: CatalogProduct[] = [
       "MOQ Bracket": "1 unit",
     },
     highlights: [
-      "Exceptional suction power for its price bracket",
-      "Unique scraper technology for better debris pickup",
-      "Reliable app control and scheduling features",
+      "Strong suction power for deep cleaning",
+      "Single-unit MOQ for easy testing",
+      "Good value proposition at the top quote",
     ],
     sourceUrl: "https://www.alibaba.com/showroom/airrobo-p20.html",
+    reviews: defaultReviews,
   }),
   buildProduct({
     id: 27,
@@ -1100,6 +1140,8 @@ export const catalogProducts: CatalogProduct[] = [
     rating: 4.4,
     reviewCount: 14,
     imageOffset: 2,
+    image: teendowImages[0],
+    images: teendowImages,
     description: "Wi-Fi robot vacuum cleaner with 3-in-1 sweep and mop positioning for accessible smart-home sales messaging.",
     features: ["Wi-Fi Control", "3-in-1 Sweep Robot", "Mopping & Sweeping", "MOQ 2"],
     specifications: {
@@ -1115,6 +1157,7 @@ export const catalogProducts: CatalogProduct[] = [
       "Retail stays approachable while preserving modeled headroom",
     ],
     sourceUrl: "https://www.alibaba.com/showroom/robot-2-in-1-vacuum-and-mop.html",
+    reviews: defaultReviews,
   }),
   buildProduct({
     id: 28,
@@ -1126,6 +1169,8 @@ export const catalogProducts: CatalogProduct[] = [
     rating: 4.5,
     reviewCount: 16,
     imageOffset: 3,
+    image: teendowLDSImages[0],
+    images: teendowLDSImages,
     description: "Self-emptying intelligent robot vacuum cleaner designed as a reliable mid-premium step up from standard vacuum-and-mop combos.",
     features: ["Self-Emptying Dustbin", "Automatic Sweeping", "Intelligent Cleaning", "MOQ 2"],
     specifications: {
@@ -1141,6 +1186,7 @@ export const catalogProducts: CatalogProduct[] = [
       "Retail modeled from the upper supplier quote",
     ],
     sourceUrl: "https://www.alibaba.com/showroom/the-best-robot-vacuum-cleaner-and-mop.html",
+    reviews: defaultReviews,
   }),
   buildProduct({
     id: 29,
@@ -1169,6 +1215,7 @@ export const catalogProducts: CatalogProduct[] = [
       "One-unit MOQ keeps the risk low",
     ],
     sourceUrl: "https://www.alibaba.com/showroom/best-robot-vacuum-cleaner-with-mop.html",
+    reviews: defaultReviews,
   }),
   buildProduct({
     id: 30,
@@ -1197,6 +1244,7 @@ export const catalogProducts: CatalogProduct[] = [
       "Modeled pricing still respects the same landed-cost assumptions",
     ],
     sourceUrl: "https://www.alibaba.com/showroom/robot-vacuum.html",
+    reviews: defaultReviews,
   }),
   buildProduct({
     id: 31,
@@ -1254,6 +1302,7 @@ export const catalogProducts: CatalogProduct[] = [
       "Competitive premium positioning",
     ],
     sourceUrl: "https://www.alibaba.com/showroom/robot-vacuum-cleaner-and-mop.html",
+    reviews: defaultReviews,
   }),
   buildProduct({
     id: 33,
@@ -1308,9 +1357,10 @@ export const catalogProducts: CatalogProduct[] = [
     highlights: [
       "Balanced mid-market option",
       "Recognizable brand in robot vacuum category",
-      "Good margin potential at mid-range pricing",
+      "Great value at mid-range pricing",
     ],
     sourceUrl: "https://www.alibaba.com/showroom/robot-vacuum-cleaner-and-mop.html",
+    reviews: defaultReviews,
   }),
   buildProduct({
     id: 35,
@@ -1363,11 +1413,12 @@ export const catalogProducts: CatalogProduct[] = [
       "MOQ Bracket": "5 pieces",
     },
     highlights: [
-      "Strong brand recognition in home cleaning",
-      "HEPA filtration appeals to health-conscious buyers",
-      "Good premium-mid positioning",
+      "HEPA filtration appeals to allergy-conscious buyers",
+      "Strong Shark brand recognition",
+      "Good value at premium pricing",
     ],
-    sourceUrl: "https://www.alibaba.com/showroom/robot-vacuum-cleaner.html",
+    sourceUrl: "https://www.alibaba.com/showroom/shark-ai-robot-vacuum.html",
+    reviews: defaultReviews,
   }),
   buildProduct({
     id: 37,
@@ -1391,11 +1442,12 @@ export const catalogProducts: CatalogProduct[] = [
       "MOQ Bracket": "5 pieces",
     },
     highlights: [
-      "Anker-owned brand with good reputation",
-      "Strong suction technology",
-      "Competitive premium-mid pricing",
+      "Strong Eufy brand recognition",
+      "Hybrid vacuum and mop functionality",
+      "Good value for premium features",
     ],
-    sourceUrl: "https://www.alibaba.com/showroom/robot-vacuum-cleaner-and-mop.html",
+    sourceUrl: "https://www.alibaba.com/showroom/eufy-robot-vacuum.html",
+    reviews: defaultReviews,
   }),
   buildProduct({
     id: 38,
@@ -1424,6 +1476,7 @@ export const catalogProducts: CatalogProduct[] = [
       "Low MOQ for easy testing",
     ],
     sourceUrl: "https://www.alibaba.com/showroom/robot-vacuum-cleaner-and-mop.html",
+    reviews: defaultReviews,
   }),
   buildProduct({
     id: 39,
@@ -1447,11 +1500,12 @@ export const catalogProducts: CatalogProduct[] = [
       "MOQ Bracket": "3 pieces",
     },
     highlights: [
-      "Unique D-shape design for better corner access",
-      "Strong navigation technology",
-      "Good premium-mid positioning",
+      "Strong suction for deep cleaning",
+      "Good value at competitive pricing",
+      "Compact design fits under furniture",
     ],
     sourceUrl: "https://www.alibaba.com/showroom/robot-vacuum-cleaner.html",
+    reviews: defaultReviews,
   }),
   buildProduct({
     id: 40,

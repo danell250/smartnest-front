@@ -8,7 +8,6 @@ export interface CartItem {
   priceZAR: number;
   quantity: number;
   image: string;
-  profitMargin: string;
 }
 
 interface CartContextType {
@@ -82,7 +81,6 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
           priceZAR: normalizePriceZAR(product.priceZAR),
           quantity,
           image: product.image,
-          profitMargin: product.profitMargin,
         },
       ];
     });
