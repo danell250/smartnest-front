@@ -3,7 +3,7 @@ import { Card } from "@/components/ui/card";
 import { useState, useEffect } from "react";
 import { catalogProducts } from "@/data/catalog";
 
-const API_BASE = process.env.NODE_ENV === 'production' ? '' : 'http://localhost:3001';
+const API_BASE = process.env.NODE_ENV === 'production' ? 'https://smartnestback.onrender.com' : 'http://localhost:3001';
 
 export default function Admin() {
   const [orders, setOrders] = useState<any[]>([]);

@@ -7,7 +7,7 @@ import { useLocation } from "wouter";
 import { useState, useEffect } from "react";
 import { PayPalButtons } from "@paypal/react-paypal-js";
 
-const API_BASE = process.env.NODE_ENV === 'production' ? '' : 'http://localhost:3001';
+const API_BASE = process.env.NODE_ENV === 'production' ? 'https://smartnestback.onrender.com' : 'http://localhost:3001';
 
 export default function Checkout() {
   const { items, getTotalPrice } = useCart();
