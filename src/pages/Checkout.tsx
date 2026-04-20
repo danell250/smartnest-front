@@ -6,6 +6,7 @@ import { ArrowLeft, AlertCircle, Truck } from "lucide-react";
 import { useLocation } from "wouter";
 import { useState, useEffect } from "react";
 import { PayPalButtons } from "@paypal/react-paypal-js";
+import { toast } from "sonner";
 
 const API_BASE = process.env.NODE_ENV === 'production' ? 'https://smartnestback.onrender.com' : 'http://localhost:3001';
 
@@ -96,7 +97,7 @@ export default function Checkout() {
     if (!formData.province) missingFields.push("Province");
 
     if (missingFields.length > 0) {
-      alert(`Please fill in the following fields: ${missingFields.join(", ")}`);
+      toast.error(`Please fill in the following fields: ${missingFields.join(", ")}`);
       return false;
     }
 
@@ -104,10 +105,6 @@ export default function Checkout() {
   };
 
   const createPayPalOrder = async () => {
-    if (!validateForm()) {
-      throw new Error("Please complete the checkout form");
-    }
-
     setIsProcessing(true);
 
     try {
@@ -137,11 +134,18 @@ export default function Checkout() {
       return data.paypalOrderId;
     } catch (error) {
       console.error('Checkout failed:', error);
-      alert(error instanceof Error ? error.message : 'Failed to process checkout. Please try again.');
+      toast.error(error instanceof Error ? error.message : 'Failed to process checkout. Please try again.');
       throw error;
     } finally {
       setIsProcessing(false);
     }
+  };
+
+  const handlePayPalClick = (_data: any, actions: any) => {
+    if (!validateForm()) {
+      return actions.reject();
+    }
+    return actions.resolve();
   };
 
   const onApprove = async (data: any) => {
@@ -167,14 +171,14 @@ export default function Checkout() {
 
       const orderData = await orderResponse.json();
 
-      alert(`Payment successful! Order #${orderData.orderNumber} has been placed.`);
+      toast.success(`Payment successful! Order #${orderData.orderNumber} has been placed.`);
       clearCart();
       localStorage.removeItem("selectedProvince");
       setPendingOrder(null);
       setLocation("/");
     } catch (error) {
       console.error('Order update failed:', error);
-      alert(error instanceof Error ? error.message : 'Failed to update order. Please contact support.');
+      toast.error(error instanceof Error ? error.message : 'Failed to update order. Please contact support.');
     } finally {
       setIsProcessing(false);
     }
@@ -182,7 +186,7 @@ export default function Checkout() {
 
   const onError = (err: any) => {
     console.error("PayPal error:", err);
-    alert("Payment failed. Please try again.");
+    toast.error("Payment failed. Please try again.");
   };
 
   return (
@@ -310,6 +314,7 @@ export default function Checkout() {
                 <div className="pt-2">
                   <PayPalButtons
                     style={{ layout: "vertical" }}
+                    onClick={handlePayPalClick}
                     createOrder={createPayPalOrder}
                     onApprove={onApprove}
                     onError={onError}
