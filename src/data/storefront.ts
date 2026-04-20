@@ -11,6 +11,7 @@ export const storefrontInfo = {
   pricingNote: "All displayed prices are retail prices in South African Rand and include VAT plus standard tracked delivery within South Africa. PayPal checkout shows the USD equivalent before payment.",
   paypalUsdToZarRate: Number(import.meta.env.VITE_PAYPAL_USD_TO_ZAR_RATE || 18.5),
   paypalClientId: import.meta.env.VITE_PAYPAL_CLIENT_ID || "AXxjiGRRXzL0lhWXhz9lUCYnIXg0Sfz-9-kDB7HbdwYPOrlspRzyS6TQWAlwRC2GlYSd4lze25jluDLj",
+  tawkToId: import.meta.env.VITE_TAWK_TO_ID || "674b0b742480f5b4f5a60641", // Default to the ID I found in the error or a dummy one
 };
 
 export const storefrontLinks = {

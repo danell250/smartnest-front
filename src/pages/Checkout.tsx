@@ -85,9 +85,18 @@ export default function Checkout() {
   };
 
   const validateForm = () => {
-    // Validate form
-    if (!formData.firstName || !formData.lastName || !formData.email || !formData.phone || !formData.address || !formData.city || !formData.postalCode || !formData.province) {
-      alert("Please fill in all fields");
+    const missingFields = [];
+    if (!formData.firstName) missingFields.push("First Name");
+    if (!formData.lastName) missingFields.push("Last Name");
+    if (!formData.email) missingFields.push("Email");
+    if (!formData.phone) missingFields.push("Phone");
+    if (!formData.address) missingFields.push("Address");
+    if (!formData.city) missingFields.push("City");
+    if (!formData.postalCode) missingFields.push("Postal Code");
+    if (!formData.province) missingFields.push("Province");
+
+    if (missingFields.length > 0) {
+      alert(`Please fill in the following fields: ${missingFields.join(", ")}`);
       return false;
     }
 
