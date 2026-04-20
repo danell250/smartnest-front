@@ -35,10 +35,12 @@ export interface CatalogProduct {
   reviews?: CatalogReview[];
 }
 
-const USD_TO_ZAR = 16.2603;
-const FX_DATE = "April 17, 2026";
-const LANDED_COST_MULTIPLIER = 1.18;
-const TARGET_MARGIN = 0.32;
+const USD_TO_ZAR = 18.5;
+const FX_DATE = "April 20, 2026";
+const LANDED_COST_MULTIPLIER = 1.25;
+const PAYMENT_RESERVE_RATE = 0.06;
+const RETURNS_RESERVE_RATE = 0.03;
+const TARGET_MARGIN = 0.23;
 
 const imagePool = [
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663463860697/SLdhiRT72VUh4Up8w2TPrH/hero-robot-vacuum-Bo28tem9ezqsyYNVYR359h.webp",
@@ -137,21 +139,21 @@ const airroboP20Images = [
 ];
 
 const liectrouxC30BImages = [
-  "/9nhnsqDRmnu1PtSoplKAenKpCqhQ4_ciBTVAIyf2G4XbiFPWAWPm43Qg8ur5iPOCHHUmxK4wr4yvch2mp1_pn8Nxs_OAu1rwIEskmiB_KK53xdxcIGKRTc_7L4w6Bv0kOecDV1u19a6g5dHephmxwE4581gDnlWTYkguSzlXEElrlcAz-JAjMfhRRclurXoK.jpeg",
-  "/Ir590-876V3ixFkvPl-kD6ObCXA04C72se2fPvO5_Plj9TAfciZsFtwcAD6vpJdY8PROGDYU0OQlhO7L7mZXgtVgP44J5b3UmFqjNEuqLaGCydrkeGmmzYSl-FwgynZar2CHEu3EkBEn1z-yIyUzQSdnCf-3cBSYszjvX3VydJdZ4hM62mrHAUHtUFqXUFrs.jpeg",
-  "/LBDqu1_rFddh5mEM0VDwL-NEpLhv0eWDawWOscaZMKWAIY8ZEz7AGNg4UuwBF9m3mu1y1L5SbtNkvCXZnDOF1HQk5dOgHtWqasyjxRTLiR_hRg6yhnFzkl9jsZIR3oDlbG0IeMuEbjYoKRdqxj9vp20D4C66Wn53N8kvygvWVO_zB-I5DrS2DezJi1WkPYeE.jpeg",
-  "/PcXnnHPHbNZuxe5E1v4UFVeO8XF1ZOMVjZ_1ttPKH7Aoa5NFz6iL3OUK_ry7UUsyUwqY6yhfuM8jpfYXx76OGYnsW3K2fzGRH7ab6ZMHWyYusxKSo9lgy5wqg14hcvcbDgOByRL3ZOyFXmUongZ6pi4H-oUvG_QYYM1uHFsHZScF1c361VLAu55g71_neFQd.jpeg",
-  "/aIYjEXd0WuI68mgc5eC_4KfoLX3PQfM4Tey6h-Ig2BRcmR4fT5d3RnS2yWWfhzcB9PewLfnyhlYTTlX5EXaSn9Gty9D7zDCFO1HWTQloPPa8VccIZYYegTl6E6UwdnT7eIHpBlOANFkZsvk_SCWTv4iKi-tKARP_J4Qoga2-D0-i0STznL7w6vQQcnHHP-df.jpeg",
-  "/iix0EOV0GsfccJeSgW__lM0szZ7Oen-AEnVmta3yk47FqF4w9jBLYrcpoTmsuyWV9FVryCxx7e82m3tZl-Bs5Gxz7N62kX9G0jDKzd2eaQnVQriXHMPiqk8BfnkudM7sJYpZTIwii_4s1BVipGLTOBtmSZzP477axz-49_lYqoa2lsf0t87a3AmD7_WA2MMl.jpeg",
+  "/liectroux-c30b-1.jpeg",
+  "/liectroux-c30b-2.jpeg",
+  "/liectroux-c30b-3.jpeg",
+  "/liectroux-c30b-4.jpeg",
+  "/liectroux-c30b-5.jpeg",
+  "/liectroux-c30b-6.jpeg",
 ];
 
 const xiaomiS20Images = [
-  "/0RP2yQ0CcRxZNw-3n86sSZT9lf1n6SiAhHtJXjYw0jR9jFyi3tV59mAgqbD58XDTDJv_sei6j14c8r-IO8hsa4LN-3O7WbjmNa9JEwtC2x4NDxkYpA0C33GH9xr0Mb_lJaWIIuAIFFZ6L7J3Vi-UonFrcNNDuHbdL8A2ED4GRTmBaTzx8sl-2S5DnyF1pP9u.jpeg",
-  "/38l_YZ-6zTO7dDu3nk4Av_r8NYGGejEWtAmuMci99YtePrBkHXL1p9iKbb1krTet3CBLHe5cWGGKoZRisj1EOIq-gxVXhdLgERYt1mKnXIjeeyRHa5JrGwe02-KkuzhUZpZqrWVe8DLC7exjJGgjIKz3K4nhZ4ek8z5wQWwp1ZXwTBbx3zScsLYGsbN5Yqlm.jpeg",
-  "/59_i6NbNJoyCwJcO0zBUbqHqTWj_keXWWWHUMVxRD08Aysxuha-mlRoyEA_t5GEB12KDn0MKhQTK2aD78IgfXgelrFYI-EcyK_-iP8zoazbvR94ouj-c2v1LYbDiBjSSb8OEsd99kUNLuF2qHA-mPpP15FO2gfxndTlgYsdqn2P6IU5M4Q6GNJrrB6PZ4ov3.jpeg",
-  "/O66UrhWyRwYdDVmuO_-HZAOV73jFxvRHaHQvRUMbFkhei_vM1iid8WZqASoV7zEYYA7RLU2sgd4iHTNffFiVR1Ik1F6z86qMRyr9IL0cVOJQld-rzOyuk9Y0b4ElZMq7Rfur2BsaWnjfjzqEj9fbTvJk4LVRQjvPaIu40w9ZAxqX94CwauTdUvN2i6W8nVny.jpeg",
-  "/Qw0iZ8xqkmOcYcg1BKb2S9SrnQLCilqNgdjyPazLieWfX2V6m7y_kcDamcbFUU9xrEls6e-wCJGpRy_xQrFntAPta0baQKlWrhIxi06Enu7YqqDIfH8mRrrENQw1UvWzY-vgNjKXeJCMregJZN-PNz9a9hYvReRBr6fW1WVp8H39f8IDSzs-VNtkeKXO46be.jpeg",
-  "/WkYkha96QMffxddRfxjtKhbFu7wfnLLB68LB50RseVFxmKPEZ-oD3eME2vmuBw8y_-bg2bQ9dOU6EaDc46oVTeA64HEkVsnccK8VmpXoOFgU1tIpuDKgEsiEF-VG91HHn2MdUxHvbk8Xwh75-JINmzMT6xBWIgxakc3Yw0rDjq90bmJ-DnyXu_-nm_CUzDvl.jpeg",
+  "/xiaomi-s20-1.jpeg",
+  "/xiaomi-s20-2.jpeg",
+  "/xiaomi-s20-3.jpeg",
+  "/xiaomi-s20-4.jpeg",
+  "/xiaomi-s20-5.jpeg",
+  "/xiaomi-s20-6.jpeg",
 ];
 
 const roborockS8Images = [
@@ -193,12 +195,12 @@ const ilifeA10sImages = [
 ];
 
 const irobotI3Images = [
-  "/-M2TB9bu1H9QFoYz-vhcQDivoPOx05_L5j7rcxUUyJUQ_vUiMEdxedHDg50KZEsQK4bsDA7gBM5QtVRg_MAVH2BHLUDxasD_H96HWxuKQPqigo-yRW0tBZIadoVoe7VGaLQTEQwklv1HSIccO61rc3htKycHPDzWp6jW2m8hlwuKi0pjso11xhFuUIzEBhb0.jpeg",
-  "/14L2bUCXcBm9sBvobogC0aCOu_7m2u1uMrFyoR4w8ystQrblvbPRtafBLc8SIoJLW-jNcr-Odv5WUHU54yK1v6TsNaWn8tk-jQyBxUDw5IMoiQ6k7cPhKaAvKIkC6qRH_eeuCzAZFD-Ni032v9ZJ-Yvq0WNc8RbiQmERl-UjDq_JifULQV91a4Dgv4hv1qzt.jpeg",
-  "/5mK6CNW1Gz1uPh9Pk-BMi-ytk_bpBjJgR2yhI76ncPKM2dSncRT-1bwtD1CTjMBQKYw_THRz_xgmrWAEeR_xhQRs8xvm8vD2wb4qUzoBhav5TSEtz8lUGyi2NU1P05-KFxhLNAPqLcGja7Hb1bTnrbAt9OutoRyNLEIacXgz2WxOBsu8i4bn-C0VnPYtd7Jz.jpeg",
-  "/NkIf27gSkxyOvKvDpR16IwQ4Mk5DH_4KfBWZ5unCIBXpQGaHRMcc5wvL-EOfWNBQf0KIDMy-MTBsWks8Szq6xqW0h-rTpB03RsoZsoJSRYP9RTPW8qTdkdZXAnip95n9NpUegYrob4Tm8X7uLlLqsX8JywXi5bF9X8gVt1f1XLA5Vkxe4Vsed0xgPrLxTJ6M.jpeg",
-  "/hJGV24YiAmPyBd_N89L5ca3ph59wbNN3k9tQfT7oTcAwvgncO-TXXOLW_6ouk1FDgrJlus2L2Wxt2oPAjH1rRVisT-b3Z1LN1tcX51BSIHUfGQcEy9LhVafCrfft4M190ikKdAzyIy3Ul2pIG3WqTOzgGmMk1cBEjph_D1SlDR3Up0HwI8jDzCPbn9xYfccU.jpeg",
-  "/r3TCW4pOrp2L1l2UP2vH1_dM8K90fy9QrnLv35LqqzMBdy8SeLF6FPG79KiDQLQDpidsfxCAE1e_3UdtQiSWHypCUHLyrkK9SA-SPWHkBA0ceHzBGnBqVEfRjN-OFpKq1EEJSBleeyYu013OFqEr8u_vPMSad8WftS4LdaytiKRiRrceoGq6eAOCppalAL_r.jpeg",
+  "/irobot-i3-1.jpeg",
+  "/irobot-i3-2.jpeg",
+  "/irobot-i3-3.jpeg",
+  "/irobot-i3-4.jpeg",
+  "/irobot-i3-5.jpeg",
+  "/irobot-i3-6.jpeg",
 ];
 
 const sharkAIImages = [
@@ -236,13 +238,13 @@ const neatoD10Images = [
 ];
 
 const samsungJetBotImages = [
-  "/4tAad8nCUiWKI1ZqKcP3hUDROMuG5HbuF3VBvBVDnanDHyD8goC69w9dYy97M2piE7sNSh2qDOr3CcFXGDnuk1weCzFiwReOy4LdQ2Ok4htEIpbg21rLwM9nCyQTRItKviQZmeOr2Nfn1IjmW_5kezVGkpHpqqMC0NuabLvvzBZKUqcqOChYozfzbWSxlyum.jpeg",
-  "/RlttQI0s_yHQQoYDXOcTcCUCzS6DluF3EZMOpwaArz1Eip7nTQL-pjKb2_WPeq6RF4kE6QJoGwtfTB4Az6h8NJ1ONKeD4pj8rA2epP06sSg5GoiK4r5unjKS4Ri7MkYWPPtt2O24uQqZ8wTh_STjmmO7Ha7hJRQ7c-0vmPz_Sgyp92DQ6R8wbug69CJzXrpp.jpeg",
-  "/Uh2N8mhRixBkmtLVSbblhSpX7GabyjKlMJiK_nsUnvuRyWowTrI0QFPALQPAI5uBya_CWszDadQTsPXiO5JlKQPisrwgzJ2wuDwhti_hkjE5z-zNeRdDtZTOXq7jegP2s6M0IT8nhrvxdJHkEXY34PIuKtDWdn2okUoUmi0UZpDxVPNJT39nTp9sV6zzbY4Z.jpeg",
-  "/XvVbBuVTJSH324RcAbK8zI0YdPrBvmtDLYys133QXREL8dqUbgq3k-Ub8t1iCvl4jTh08JHKJQ6uTw0mctbbf_q4z0vHYHCy2r2eZgtIooadrL45lR1uAtD5R9zBMzIxasVIcaC7XskKmW-PxnZdigX0ET3OgueqX1rc370XeWIKdaQ1lIWnVedEjnTUXbaT.jpeg",
-  "/eKheMFOfSgO5A4Mux9UZ0SH9V06BiGgnWCxvUVPVTYGXFRswZgF97WYFrpZW2AMff9QW47sQ__rGtQ_gjB6LgRlaxE5aurnjI-2J2cwQhIjNLu13rzCHOZqQ2n4XFN6g4-Ow97jvMuS3w27DA5Rq1y9zzqTR5kiRmF8s2yb2o52gCCGOw1hZ4yHjyNQa35_k.jpeg",
-  "/eKheMFOfSgO5A4Mux9UZ0SH9V06BiGgnWCxvUVPVTYGXFRswZgF97WYFrpZW2AMff9QW47sQ__rGtQ_gjB6LgRlaxE5aurnjI-2J2cwQhIjNLu13rzCHOZqQ2n4XFN6g4-Ow97jvMuS3w27DA5Rq1y9zzqTR5kiRmF8s2yb2o52gCCGOw1hZ4yHjyNQa35_k (1).jpeg",
-  "/xrFKORjcqpG0O1IB61kwnrcME8m3ZVwQs49yaETtBnSR4PipwdxW99fFbA_z48Zd8u912JlyeLgmfuQngg1CgsKrVrP9w22HZ40HY3yioxRn5NkX3ALNH03DW6STBDnghmmM59Ynrjaep9MSt8liZCqUd_nF31BrcxMshY5qazp7Ijve-YVdu-iTAp7OHogl.jpeg",
+  "/samsung-jet-bot-1.jpeg",
+  "/samsung-jet-bot-2.jpeg",
+  "/samsung-jet-bot-3.jpeg",
+  "/samsung-jet-bot-4.jpeg",
+  "/samsung-jet-bot-5.jpeg",
+  "/samsung-jet-bot-6.jpeg",
+  "/samsung-jet-bot-7.jpeg",
 ];
 
 const defaultReviews: CatalogReview[] = [
@@ -283,16 +285,34 @@ const defaultReviews: CatalogReview[] = [
 
 const roundRetailPrice = (amount: number) => Math.max(999, Math.ceil(amount / 100) * 100 - 1);
 
+const getDeliveryReserveZAR = (highUsd: number) => {
+  if (highUsd >= 300) return 299;
+  if (highUsd >= 200) return 249;
+  if (highUsd >= 120) return 199;
+  return 149;
+};
+
 const calculateRetailPrice = (highUsd: number) => {
   const landedCostZAR = highUsd * USD_TO_ZAR * LANDED_COST_MULTIPLIER;
-  const exVatRetail = landedCostZAR / (1 - TARGET_MARGIN);
+  const deliveryReserveZAR = getDeliveryReserveZAR(highUsd);
+  const exVatRetail =
+    (landedCostZAR + deliveryReserveZAR) /
+    (1 - PAYMENT_RESERVE_RATE - RETURNS_RESERVE_RATE - TARGET_MARGIN);
   return roundRetailPrice(exVatRetail * 1.15);
 };
 
 const formatMargin = (lowUsd: number, highUsd: number, retailPriceZAR: number) => {
   const retailExVat = retailPriceZAR / 1.15;
-  const lowMargin = ((retailExVat - lowUsd * USD_TO_ZAR * LANDED_COST_MULTIPLIER) / retailExVat) * 100;
-  const highMargin = ((retailExVat - highUsd * USD_TO_ZAR * LANDED_COST_MULTIPLIER) / retailExVat) * 100;
+  const lowMargin =
+    ((retailExVat -
+      (lowUsd * USD_TO_ZAR * LANDED_COST_MULTIPLIER + getDeliveryReserveZAR(lowUsd))) /
+      retailExVat) *
+    100;
+  const highMargin =
+    ((retailExVat -
+      (highUsd * USD_TO_ZAR * LANDED_COST_MULTIPLIER + getDeliveryReserveZAR(highUsd))) /
+      retailExVat) *
+    100;
 
   return `${Math.round(Math.min(lowMargin, highMargin))}-${Math.round(Math.max(lowMargin, highMargin))}%`;
 };
@@ -364,7 +384,7 @@ const buildProduct = ({
       supplierPriceUSD,
       minimumOrder,
       dispatchWindow,
-      pricingNote: `Priced from the top of the Alibaba range using USD/ZAR ${USD_TO_ZAR} on ${FX_DATE} with an 18% landed-cost buffer.`,
+      pricingNote: `Priced from the top of the Alibaba range using USD/ZAR ${USD_TO_ZAR} on ${FX_DATE}, a 25% landed-cost buffer, and a delivery-inclusive margin reserve.`,
     },
     highlights,
     reviews,

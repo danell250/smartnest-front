@@ -3,7 +3,7 @@ import { Card } from "@/components/ui/card";
 import { useCart } from "@/contexts/CartContext";
 import { Trash2, ArrowLeft, ShoppingCart, Shield, Truck, CheckCircle, Package } from "lucide-react";
 import { useLocation } from "wouter";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 
 export default function Cart() {
   const { items, removeFromCart, updateQuantity, getTotalPrice, clearCart } = useCart();
@@ -13,16 +13,16 @@ export default function Cart() {
   const total = getTotalPrice();
 
   // Shipping rates for South African provinces
-  const shippingRates: Record<string, { baseRate: number; perKgRate: number; estimatedDays: number }> = {
-    GP: { baseRate: 89, perKgRate: 15, estimatedDays: 7 },
-    WC: { baseRate: 129, perKgRate: 18, estimatedDays: 9 },
-    KZN: { baseRate: 119, perKgRate: 17, estimatedDays: 8 },
-    EC: { baseRate: 149, perKgRate: 20, estimatedDays: 10 },
-    FS: { baseRate: 109, perKgRate: 16, estimatedDays: 8 },
-    LP: { baseRate: 119, perKgRate: 17, estimatedDays: 9 },
-    MP: { baseRate: 109, perKgRate: 16, estimatedDays: 8 },
-    NC: { baseRate: 139, perKgRate: 19, estimatedDays: 10 },
-    NW: { baseRate: 109, perKgRate: 16, estimatedDays: 8 },
+  const deliveryEstimates: Record<string, number> = {
+    GP: 7,
+    WC: 9,
+    KZN: 8,
+    EC: 10,
+    FS: 8,
+    LP: 9,
+    MP: 8,
+    NC: 10,
+    NW: 8,
   };
 
   const provinceNames: Record<string, string> = {
@@ -37,12 +37,11 @@ export default function Cart() {
     NW: "North West",
   };
 
-  // Calculate shipping cost (assuming average robot vacuum weight of 4kg)
-  const estimatedWeight = items.reduce((sum, item) => sum + (item.quantity * 4), 0);
-  const shippingCost = selectedProvince 
-    ? shippingRates[selectedProvince].baseRate + (shippingRates[selectedProvince].perKgRate * estimatedWeight)
-    : 0;
-  const estimatedDays = selectedProvince ? shippingRates[selectedProvince].estimatedDays : 0;
+  const estimatedDays = selectedProvince ? deliveryEstimates[selectedProvince] : 0;
+  const checkoutLabel = useMemo(() => {
+    if (!selectedProvince) return "Proceed to Checkout";
+    return `Proceed to Checkout (${provinceNames[selectedProvince]})`;
+  }, [provinceNames, selectedProvince]);
 
   if (items.length === 0) {
     return (
@@ -170,13 +169,13 @@ export default function Cart() {
 
               {/* Province Selector */}
               <div className="space-y-2">
-                <label className="text-xs font-semibold text-foreground">Select Province for Shipping</label>
+                <label className="text-xs font-semibold text-foreground">Select Province for Delivery Estimate</label>
                 <select
                   value={selectedProvince}
                   onChange={(e) => setSelectedProvince(e.target.value)}
                   className="w-full px-3 py-2 text-xs border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                 >
-                  <option value="">Select province...</option>
+                  <option value="">Select province (optional)...</option>
                   <option value="GP">Gauteng</option>
                   <option value="WC">Western Cape</option>
                   <option value="KZN">KwaZulu-Natal</option>
@@ -200,13 +199,8 @@ export default function Cart() {
                   <span className="font-semibold">R{total.toLocaleString('en-ZA', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                 </div>
                 <div className="flex justify-between text-xs text-foreground">
-                  <span className="text-muted-foreground">Shipping</span>
-                  <span className="font-semibold">
-                    {selectedProvince 
-                      ? `R${shippingCost.toLocaleString('en-ZA', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`
-                      : 'Select province'
-                    }
-                  </span>
+                  <span className="text-muted-foreground">Delivery</span>
+                  <span className="font-semibold text-green-700">Included</span>
                 </div>
               </div>
 
@@ -214,7 +208,7 @@ export default function Cart() {
                 <div className="flex justify-between text-base font-bold text-foreground">
                   <span>Total (incl. VAT)</span>
                   <span className="text-primary">
-                    R{(total + shippingCost).toLocaleString('en-ZA', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                    R{total.toLocaleString('en-ZA', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                   </span>
                 </div>
               </div>
@@ -223,14 +217,12 @@ export default function Cart() {
                 onClick={() => {
                   if (selectedProvince) {
                     localStorage.setItem('selectedProvince', selectedProvince);
-                    setLocation("/checkout");
-                  } else {
-                    alert('Please select a province to calculate shipping');
                   }
+                  setLocation("/checkout");
                 }}
                 className="w-full bg-primary hover:bg-blue-700 text-white py-3 text-sm font-semibold"
               >
-                Proceed to Checkout
+                {checkoutLabel}
               </Button>
 
               <div className="space-y-2 pt-3 border-t border-border">
@@ -240,7 +232,7 @@ export default function Cart() {
                 </div>
                 <div className="flex items-center gap-2 text-xs text-muted-foreground">
                   <Truck className="w-4 h-4 text-blue-600" />
-                  <span>Fast delivery across SA</span>
+                  <span>Tracked delivery included across SA</span>
                 </div>
                 <div className="flex items-center gap-2 text-xs text-muted-foreground">
                   <CheckCircle className="w-4 h-4 text-primary" />

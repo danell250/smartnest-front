@@ -28,7 +28,7 @@ export default function FAQ() {
         <Card className="p-8 space-y-3">
           <h2 className="text-xl font-semibold text-foreground">Is checkout secure?</h2>
           <p className="text-muted-foreground">
-            We do not ask you to enter card details directly on this site. Orders are confirmed first, then secure payment instructions are shared after stock and delivery details are verified.
+            Yes. PayPal handles the payment step directly, so card and wallet details are entered inside PayPal's secure checkout flow rather than stored on this site.
           </p>
         </Card>
         <Card className="p-8 space-y-3">

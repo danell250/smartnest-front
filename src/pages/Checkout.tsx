@@ -23,7 +23,6 @@ export default function Checkout() {
     province: localStorage.getItem('selectedProvince') || "",
   });
   const [isProcessing, setIsProcessing] = useState(false);
-  const [shippingCost, setShippingCost] = useState(0);
   const [estimatedDays, setEstimatedDays] = useState(0);
   const [pendingOrder, setPendingOrder] = useState<{
     internalOrderId: number;
@@ -34,7 +33,7 @@ export default function Checkout() {
 
   const subtotal = getTotalPrice();
   const tax = subtotal * (15 / 115);
-  const total = subtotal + shippingCost;
+  const total = subtotal;
   const paypalTotalUsd = (total / storefrontInfo.paypalUsdToZarRate).toFixed(2);
 
   // Calculate shipping when province changes
@@ -78,7 +77,6 @@ export default function Checkout() {
       });
       const data = await response.json();
       if (data.success) {
-        setShippingCost(data.shippingCost);
         setEstimatedDays(data.estimatedDays);
       }
     } catch (error) {
@@ -125,7 +123,6 @@ export default function Checkout() {
         totalUSD: data.totalUSD,
       });
 
-      setShippingCost(data.shippingCost);
       setEstimatedDays(data.estimatedDays);
 
       return data.paypalOrderId;
@@ -339,11 +336,9 @@ export default function Checkout() {
                 <div className="flex justify-between text-xs text-foreground">
                   <span className="flex items-center gap-1">
                     <Truck className="w-3 h-3" />
-                    Shipping
+                    Delivery
                   </span>
-                  <span className="font-semibold">
-                    {shippingCost > 0 ? `R${shippingCost.toLocaleString("en-ZA", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}` : 'Select province'}
-                  </span>
+                  <span className="font-semibold text-green-700">Included</span>
                 </div>
                 {estimatedDays > 0 && (
                   <div className="text-xs text-muted-foreground">

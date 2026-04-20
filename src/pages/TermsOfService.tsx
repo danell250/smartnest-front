@@ -13,7 +13,7 @@ export default function TermsOfService() {
           <h2 className="text-2xl font-semibold text-foreground">Pricing</h2>
           <p className="text-muted-foreground">{storefrontInfo.pricingNote}</p>
           <p className="text-muted-foreground">
-            If delivery or special-order charges apply, those are confirmed with you before payment is finalized.
+            Special-order or exceptional remote-area surcharges, if ever required, are confirmed with you before payment is finalized.
           </p>
         </Card>
         <Card className="p-8 space-y-4">

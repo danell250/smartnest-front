@@ -34,7 +34,7 @@ export default function ShippingDelivery() {
           <ul className="space-y-3 text-muted-foreground">
             <li>Delivery estimates are not guarantees and may change during supplier peak periods, customs processing, or courier disruptions.</li>
             <li>Orders to remote or outlying areas may take longer than metro deliveries.</li>
-            <li>Displayed prices include VAT. Delivery charges, if any, are communicated before payment is finalized.</li>
+            <li>Displayed prices include VAT and standard tracked delivery within South Africa.</li>
           </ul>
         </Card>
       </div>
