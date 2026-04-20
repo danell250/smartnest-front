@@ -16,7 +16,6 @@ export interface CatalogProduct {
   brand: string;
   priceZAR: number;
   minOrder: string;
-  profitMargin: string;
   features: string[];
   rating: number;
   reviewCount: number;
@@ -53,12 +52,12 @@ const imagePool = [
 ];
 
 const teendowImages = [
-  "/H4ffe5a39971f4c1fb6ce02f204809979W.jpg",
-  "/H649cfd410f2741ae93572b13c4333019Q.jpg",
-  "/H78638f29bc124f628a5f8ad3a00761dcx.jpg",
-  "/H96dcc77ebbf24240aac2f4028f768337k.jpg",
-  "/Hcae753344286406a93b743460ee2013fR.jpg",
-  "/Hd5962381b0454b158cebc693cc1f99d5o.jpg",
+  "/Teendow D10S MAX Robot Vacuum/H4ffe5a39971f4c1fb6ce02f204809979W.jpg",
+  "/Teendow D10S MAX Robot Vacuum/H649cfd410f2741ae93572b13c4333019Q.jpg",
+  "/Teendow D10S MAX Robot Vacuum/H78638f29bc124f628a5f8ad3a00761dcx.jpg",
+  "/Teendow D10S MAX Robot Vacuum/H96dcc77ebbf24240aac2f4028f768337k.jpg",
+  "/Teendow D10S MAX Robot Vacuum/Hcae753344286406a93b743460ee2013fR.jpg",
+  "/Teendow D10S MAX Robot Vacuum/Hd5962381b0454b158cebc693cc1f99d5o.jpg",
 ];
 
 const teendowLDSImages = [
@@ -138,12 +137,12 @@ const airroboP20Images = [
 ];
 
 const liectrouxC30BImages = [
-  "/9nhnsqDRmnu1PtSoplKAenKpCqhQ4_ciBTVAIyf2G4XbiFPWAWPm43Qg8ur5iPOCHHUmxK4wr4yvch2mp1_pn8Nxs_OAu1rwIEskmiB_KK53xdxcIGKRTc_7L4w6Bv0kOecDV1u19a6g5dHephmxwE4581gDnlWTYkguSzlXEElrlcAz-JAjMfhRRclurXoK.jpeg",
-  "/Ir590-876V3ixFkvPl-kD6ObCXA04C72se2fPvO5_Plj9TAfciZsFtwcAD6vpJdY8PROGDYU0OQlhO7L7mZXgtVgP44J5b3UmFqjNEuqLaGCydrkeGmmzYSl-FwgynZar2CHEu3EkBEn1z-yIyUzQSdnCf-3cBSYszjvX3VydJdZ4hM62mrHAUHtUFqXUFrs.jpeg",
-  "/LBDqu1_rFddh5mEM0VDwL-NEpLhv0eWDawWOscaZMKWAIY8ZEz7AGNg4UuwBF9m3mu1y1L5SbtNkvCXZnDOF1HQk5dOgHtWqasyjxRTLiR_hRg6yhnFzkl9jsZIR3oDlbG0IeMuEbjYoKRdqxj9vp20D4C66Wn53N8kvygvWVO_zB-I5DrS2DezJi1WkPYeE.jpeg",
-  "/PcXnnHPHbNZuxe5E1v4UFVeO8XF1ZOMVjZ_1ttPKH7Aoa5NFz6iL3OUK_ry7UUsyUwqY6yhfuM8jpfYXx76OGYnsW3K2fzGRH7ab6ZMHWyYusxKSo9lgy5wqg14hcvcbDgOByRL3ZOyFXmUongZ6pi4H-oUvG_QYYM1uHFsHZScF1c361VLAu55g71_neFQd.jpeg",
-  "/aIYjEXd0WuI68mgc5eC_4KfoLX3PQfM4Tey6h-Ig2BRcmR4fT5d3RnS2yWWfhzcB9PewLfnyhlYTTlX5EXaSn9Gty9D7zDCFO1HWTQloPPa8VccIZYYegTl6E6UwdnT7eIHpBlOANFkZsvk_SCWTv4iKi-tKARP_J4Qoga2-D0-i0STznL7w6vQQcnHHP-df.jpeg",
-  "/iix0EOV0GsfccJeSgW__lM0szZ7Oen-AEnVmta3yk47FqF4w9jBLYrcpoTmsuyWV9FVryCxx7e82m3tZl-Bs5Gxz7N62kX9G0jDKzd2eaQnVQriXHMPiqk8BfnkudM7sJYpZTIwii_4s1BVipGLTOBtmSZzP477axz-49_lYqoa2lsf0t87a3AmD7_WA2MMl.jpeg",
+  "/Household Wet & Dry Self-Emptying Robot Vacuum/9nhnsqDRmnu1PtSoplKAenKpCqhQ4_ciBTVAIyf2G4XbiFPWAWPm43Qg8ur5iPOCHHUmxK4wr4yvch2mp1_pn8Nxs_OAu1rwIEskmiB_KK53xdxcIGKRTc_7L4w6Bv0kOecDV1u19a6g5dHephmxwE4581gDnlWTYkguSzlXEElrlcAz-JAjMfhRRclurXoK.jpeg",
+  "/Household Wet & Dry Self-Emptying Robot Vacuum/Ir590-876V3ixFkvPl-kD6ObCXA04C72se2fPvO5_Plj9TAfciZsFtwcAD6vpJdY8PROGDYU0OQlhO7L7mZXgtVgP44J5b3UmFqjNEuqLaGCydrkeGmmzYSl-FwgynZar2CHEu3EkBEn1z-yIyUzQSdnCf-3cBSYszjvX3VydJdZ4hM62mrHAUHtUFqXUFrs.jpeg",
+  "/Household Wet & Dry Self-Emptying Robot Vacuum/LBDqu1_rFddh5mEM0VDwL-NEpLhv0eWDawWOscaZMKWAIY8ZEz7AGNg4UuwBF9m3mu1y1L5SbtNkvCXZnDOF1HQk5dOgHtWqasyjxRTLiR_hRg6yhnFzkl9jsZIR3oDlbG0IeMuEbjYoKRdqxj9vp20D4C66Wn53N8kvygvWVO_zB-I5DrS2DezJi1WkPYeE.jpeg",
+  "/Household Wet & Dry Self-Emptying Robot Vacuum/PcXnnHPHbNZuxe5E1v4UFVeO8XF1ZOMVjZ_1ttPKH7Aoa5NFz6iL3OUK_ry7UUsyUwqY6yhfuM8jpfYXx76OGYnsW3K2fzGRH7ab6ZMHWyYusxKSo9lgy5wqg14hcvcbDgOByRL3ZOyFXmUongZ6pi4H-oUvG_QYYM1uHFsHZScF1c361VLAu55g71_neFQd.jpeg",
+  "/Household Wet & Dry Self-Emptying Robot Vacuum/aIYjEXd0WuI68mgc5eC_4KfoLX3PQfM4Tey6h-Ig2BRcmR4fT5d3RnS2yWWfhzcB9PewLfnyhlYTTlX5EXaSn9Gty9D7zDCFO1HWTQloPPa8VccIZYYegTl6E6UwdnT7eIHpBlOANFkZsvk_SCWTv4iKi-tKARP_J4Qoga2-D0-i0STznL7w6vQQcnHHP-df.jpeg",
+  "/Household Wet & Dry Self-Emptying Robot Vacuum/iix0EOV0GsfccJeSgW__lM0szZ7Oen-AEnVmta3yk47FqF4w9jBLYrcpoTmsuyWV9FVryCxx7e82m3tZl-Bs5Gxz7N62kX9G0jDKzd2eaQnVQriXHMPiqk8BfnkudM7sJYpZTIwii_4s1BVipGLTOBtmSZzP477axz-49_lYqoa2lsf0t87a3AmD7_WA2MMl.jpeg",
 ];
 
 const xiaomiS20Images = [
@@ -203,47 +202,47 @@ const irobotI3Images = [
 ];
 
 const sharkAIImages = [
-  "/EJzk4s--H8r0cld8Z1SSJm2a6nekGVArDzQ7aL2Gi0x3MWm7reF0soXvFsY4nAdHQcoydd3MqB-78ycyB2MAqzFS25pL3ot265fQGP0NgWZCIGb26fk9kKe1xcfCN5geVOgorEqOtbgJ5GIzV6GBsab6HRZ07QebLQIgTtguDu1WmvF3qT6o22iUsB_cd3Vf.jpeg",
-  "/V5nCyFr5MvwtCdDECydwnqGoPWP5gQEXKFn2_nlfuX9IOSXP70GvSN7KVZc9rd0teFC3uEs6zY7CRWwkCdUvWGOhzd7FZVpM3rZScoyP2DDGJqtIFXA_9auFEpSZEAKkebKG0brwswIBG4cQ02AivFGHDH6zHpXSDWGliOe0fW4oMJBebCcjaWslK4OxnMEy.jpeg",
-  "/YntQ8eEOVNq7Junvrp-5l7n92VRQ0X8ERRggA1N0kK6M4HAn6DIairMCHsJS7qoNv7V4xQNRLN4psU9zEKGy6YIZdekrAWKPgUxrOss_bRP9-S936NHAWdmuhPEVYaqbfhAVd5egsfanFYzWAwz4-r4uXmsXplHt7Vjg7N-LYkQ2aCU7whGsiijwpPTvVCtu.jpeg",
-  "/hIWcQuRu3di_TCTtNzG7Td2CVyLT7zuKTCjhDuAi9ToyAjUtgxt2nzpEyXTpDm9FyzpH6OtjUgEeM5hxhb_otlgDIJidZ3eV1Vx_AL1baIaxxYcjNKHBfC9yE6qTXxi0kQ_iIRcJFmZzp9YSYI43roo8jREICh2Wlwv2PXToIxcSut9p2XhL70iFFtSCX4hX.jpeg",
-  "/luG60QpFNVuL7FY_9w1eH6WkM90-EEJZNYy3lgqDVxLJS7tdqHNKV1Cu6MGpUwJHAQxdcTfWa0L5V-qUd9E9toWcgN02ILNv5keucPNKhLyWvqE_onTw5bZSzpetnQu0i2j3BZL5RTyzsfE4NxobNexDPPgDleTUxwDTf5B2bsir9qZGTt2JRY3O78RCpn_l.jpeg",
-  "/ntq8Y8JlgzfQgsTeBEbJdNKwZ-NkOd8CemvVCfhvlbT4ZNneluA4G2igXoVPDpvPcDZAXYvaq0dJxyrvTA-oIkXAHh4BMKMwDCAK7R4uVzmwlQ5HinS95pRhV06jXURs1jXU8XYyDtJ3rYJMM3EYTLIU8oMsHXiH1nJV5W3zb0vdfWiU_I0KOJKv9xUP8rNw.jpeg",
+  "/Shark AI Robot Vacuum with XL HEPA/EJzk4s--H8r0cld8Z1SSJm2a6nekGVArDzQ7aL2Gi0x3MWm7reF0soXvFsY4nAdHQcoydd3MqB-78ycyB2MAqzFS25pL3ot265fQGP0NgWZCIGb26fk9kKe1xcfCN5geVOgorEqOtbgJ5GIzV6GBsab6HRZ07QebLQIgTtguDu1WmvF3qT6o22iUsB_cd3Vf.jpeg",
+  "/Shark AI Robot Vacuum with XL HEPA/V5nCyFr5MvwtCdDECydwnqGoPWP5gQEXKFn2_nlfuX9IOSXP70GvSN7KVZc9rd0teFC3uEs6zY7CRWwkCdUvWGOhzd7FZVpM3rZScoyP2DDGJqtIFXA_9auFEpSZEAKkebKG0brwswIBG4cQ02AivFGHDH6zHpXSDWGliOe0fW4oMJBebCcjaWslK4OxnMEy.jpeg",
+  "/Shark AI Robot Vacuum with XL HEPA/YntQ8eEOVNq7Junvrp-5l7n92VRQ0X8ERRggA1N0kK6M4HAn6DIairMCHsJS7qoNv7V4xQNRLN4psU9zEKGy6YIZdekrAWKPgUxrOss_bRP9-S936NHAWdmuhPEVYaqbfhAVd5egsfanFYzWAwz4-r4uXmsXplHt7Vjg7N-LYkQ2aCU7whGsiijwpPTvVCtu.jpeg",
+  "/Shark AI Robot Vacuum with XL HEPA/hIWcQuRu3di_TCTtNzG7Td2CVyLT7zuKTCjhDuAi9ToyAjUtgxt2nzpEyXTpDm9FyzpH6OtjUgEeM5hxhb_otlgDIJidZ3eV1Vx_AL1baIaxxYcjNKHBfC9yE6qTXxi0kQ_iIRcJFmZzp9YSYI43roo8jREICh2Wlwv2PXToIxcSut9p2XhL70iFFtSCX4hX.jpeg",
+  "/Shark AI Robot Vacuum with XL HEPA/luG60QpFNVuL7FY_9w1eH6WkM90-EEJZNYy3lgqDVxLJS7tdqHNKV1Cu6MGpUwJHAQxdcTfWa0L5V-qUd9E9toWcgN02ILNv5keucPNKhLyWvqE_onTw5bZSzpetnQu0i2j3BZL5RTyzsfE4NxobNexDPPgDleTUxwDTf5B2bsir9qZGTt2JRY3O78RCpn_l.jpeg",
+  "/Shark AI Robot Vacuum with XL HEPA/ntq8Y8JlgzfQgsTeBEbJdNKwZ-NkOd8CemvVCfhvlbT4ZNneluA4G2igXoVPDpvPcDZAXYvaq0dJxyrvTA-oIkXAHh4BMKMwDCAK7R4uVzmwlQ5HinS95pRhV06jXURs1jXU8XYyDtJ3rYJMM3EYTLIU8oMsHXiH1nJV5W3zb0vdfWiU_I0KOJKv9xUP8rNw.jpeg",
 ];
 
 const eufyX8Images = [
-  "/0wYCtdcDX-gRzWwFxZIuFGJS-ZyGzHCkSBnRbpotzh6Zx1psMAvNUmUnR3UqgGuRgKLji4zc0AgD64QQknDkauYrIcb4QjDH5bGrZEsdlNsxISc_Fal4TqsddoddKChg9S0z7iwS_sBhhwp2qALtFtUafek8Mion6hWIjzvC-C7m7c-vAsAbQ4umNUqy9_Fm.jpeg",
-  "/3MuFjhB2cMSGsczVMzSYagms4Jkbo-GNNZ_wkL--9qy_4afOMWL7s7H7uCiB6yi3Zb3Vi3tZSPaHWZ-265G4Vrp52nv0n4WzADf67FzvFyQrZMuxkJWXc5qqdqLpV6Hhby3JKAd4qK6V6iYtOe_mL4n_QL9rblbn5jo7NJI-ju6-4WDgVKua41eg_ZbCY4q8.jpeg",
-  "/BnbCSp3yygpGceYaIXjsxhmexhaGQx5nHmCUPqXaykQ_J4pyG7Mcek8s5Jipf1s3jU27vbyZcRvVDlqChFjOZo-1XhJ79p8bTCAqKC4a_QLf0rrLgZCTT0A38ZQ4M0elnqVM22z7ZfYSknOHCUA8tRkNlM5twtJgAzuauzoEpYIB0QZRBJBwDInFIiq_moaM.jpeg",
-  "/FAOc-rCeLtSvdk8_JgW8ib7i8b7m6en9Pm0wXkkW44Hx0nv57oqrcxjTl65qqzndpn4v5hg-efTlUN3ka2cm76Y_iGfujHocE2SuPAn6mFEYcVLm3UIrd2xG5gbS-_qQ_p3Nu9HtEQxH58U8-Bn6D6YWm93YaBl0hXu-1bHnzqKJDHpjn8P70AQLb9bKI3wV.jpeg",
-  "/wPJRJ4lWfc5MGdrCKDUrXRnEmYFMXOUtTZ0V5VYxHGOEOv396Q3EnX4w_bdZhX2H4mT3a86vmswyDtf68bcyp22b3rJRuLuLTwhGEx89061OkQULMP3sXDhTQ6S2ZjuhlQyilalTryAwpQ2KgNQB1G9n5mPuukF8Vb42OZrUuvZOKCKy3V51xmNcdDR2toLw.jpeg",
+  "/Eufy RoboVac X8 Hybrid Robot Vacuum/0wYCtdcDX-gRzWwFxZIuFGJS-ZyGzHCkSBnRbpotzh6Zx1psMAvNUmUnR3UqgGuRgKLji4zc0AgD64QQknDkauYrIcb4QjDH5bGrZEsdlNsxISc_Fal4TqsddoddKChg9S0z7iwS_sBhhwp2qALtFtUafek8Mion6hWIjzvC-C7m7c-vAsAbQ4umNUqy9_Fm.jpeg",
+  "/Eufy RoboVac X8 Hybrid Robot Vacuum/3MuFjhB2cMSGsczVMzSYagms4Jkbo-GNNZ_wkL--9qy_4afOMWL7s7H7uCiB6yi3Zb3Vi3tZSPaHWZ-265G4Vrp52nv0n4WzADf67FzvFyQrZMuxkJWXc5qqdqLpV6Hhby3JKAd4qK6V6iYtOe_mL4n_QL9rblbn5jo7NJI-ju6-4WDgVKua41eg_ZbCY4q8.jpeg",
+  "/Eufy RoboVac X8 Hybrid Robot Vacuum/BnbCSp3yygpGceYaIXjsxhmexhaGQx5nHmCUPqXaykQ_J4pyG7Mcek8s5Jipf1s3jU27vbyZcRvVDlqChFjOZo-1XhJ79p8bTCAqKC4a_QLf0rrLgZCTT0A38ZQ4M0elnqVM22z7ZfYSknOHCUA8tRkNlM5twtJgAzuauzoEpYIB0QZRBJBwDInFIiq_moaM.jpeg",
+  "/Eufy RoboVac X8 Hybrid Robot Vacuum/FAOc-rCeLtSvdk8_JgW8ib7i8b7m6en9Pm0wXkkW44Hx0nv57oqrcxjTl65qqzndpn4v5hg-efTlUN3ka2cm76Y_iGfujHocE2SuPAn6mFEYcVLm3UIrd2xG5gbS-_qQ_p3Nu9HtEQxH58U8-Bn6D6YWm93YaBl0hXu-1bHnzqKJDHpjn8P70AQLb9bKI3wV.jpeg",
+  "/Eufy RoboVac X8 Hybrid Robot Vacuum/wPJRJ4lWfc5MGdrCKDUrXRnEmYFMXOUtTZ0V5VYxHGOEOv396Q3EnX4w_bdZhX2H4mT3a86vmswyDtf68bcyp22b3rJRuLuLTwhGEx89061OkQULMP3sXDhTQ6S2ZjuhlQyilalTryAwpQ2KgNQB1G9n5mPuukF8Vb42OZrUuvZOKCKy3V51xmNcdDR2toLw.jpeg",
 ];
 
 const yeediC12Images = [
-  "/2HmWk7ltkFjDdk_or2E9DQGfEIOfuahGIBfJ0xMhvEecC6ANYnxhEq02kDpUBhHA8pZswGiHsnnacNIXXUih1T3NjKKneMx_viJsSwiMmMaiPRorJmqkZxoW46_C5LRm3ou2XpeD49fitZAW5xys9ZOkxItcJpeX1tuBoCPCb4OUdHculK8tGhyWnx46LcbG.jpeg",
-  "/CMirqC3NfQejdQfDPuSMvK8SFxZOnmpUc-mGUVsJqMLPLjvzjbPnVeJNtUTAHjJumbOGWsTYAWLZCBdmyfWDsOyTIEwqYxJiYp-8QoAojA8YcjtVVTXtkIqfhE05b1DokagMIlSVxUneaWPoekIFLuk3jaNrxeh85Fzpz00Tz1xSX2zumPeEzSkI410Et6rx.jpeg",
-  "/UZiKCvsAMh0_QVsaeMobAPTGh3dWn_jQ3kQ-WIq5MyZKqGZdDbHr4rcDAoPAzdf3wCDm7WbZeRcwfbZslRpfUSdlu9oTq2Zrhlq-JEnlMyOhywv7lxqeqOYy-C_Libs5gLeCzM8I5rl8jCVUqgDkljbbZ4xYewNecg3DONcBBgEJFlZGdIXqHwGxZO-uqApQ.jpeg",
-  "/eahNF0q7yvYCY8iXrJcjhQfk3uh2-yRpCrpM0oJltrrOr69oke9ah_tjXtj3XNDxeMXKgmGjXFzvYc3H_lkJ-Incwpv7dKzq7OGd0Q-SnA6Ojy2qOu2xSyh3WtAo_gDsKnA4P3N79hBoUzGY-XmFmgfJghr7AQKatqJWn00cf7RkP2fA1zsxTPVbUjIq1YAc.jpeg",
-  "/haJqs3-8MhNmpn_a0mIGRpd6rFNfV0gTHx-wpWLOQobGK60yybnKnk3hKFYGWyOzS52yOV_ISVmeCiUGXbwuTGpYIoYZLK-cVPPhYDfqLFQ8X9pgPEdNQuO4Gn4CC0nnPbwU2JiFARTn4zB_KaO3vmWaUoizwJXZ_G4JnSj9wOqA6-iwM0HrG0PyKOCIn1B-.jpeg",
+  "/Yeedi C12 Robot Vacuum Cleaner/2HmWk7ltkFjDdk_or2E9DQGfEIOfuahGIBfJ0xMhvEecC6ANYnxhEq02kDpUBhHA8pZswGiHsnnacNIXXUih1T3NjKKneMx_viJsSwiMmMaiPRorJmqkZxoW46_C5LRm3ou2XpeD49fitZAW5xys9ZOkxItcJpeX1tuBoCPCb4OUdHculK8tGhyWnx46LcbG.jpeg",
+  "/Yeedi C12 Robot Vacuum Cleaner/CMirqC3NfQejdQfDPuSMvK8SFxZOnmpUc-mGUVsJqMLPLjvzjbPnVeJNtUTAHjJumbOGWsTYAWLZCBdmyfWDsOyTIEwqYxJiYp-8QoAojA8YcjtVVTXtkIqfhE05b1DokagMIlSVxUneaWPoekIFLuk3jaNrxeh85Fzpz00Tz1xSX2zumPeEzSkI410Et6rx.jpeg",
+  "/Yeedi C12 Robot Vacuum Cleaner/UZiKCvsAMh0_QVsaeMobAPTGh3dWn_jQ3kQ-WIq5MyZKqGZdDbHr4rcDAoPAzdf3wCDm7WbZeRcwfbZslRpfUSdlu9oTq2Zrhlq-JEnlMyOhywv7lxqeqOYy-C_Libs5gLeCzM8I5rl8jCVUqgDkljbbZ4xYewNecg3DONcBBgEJFlZGdIXqHwGxZO-uqApQ.jpeg",
+  "/Yeedi C12 Robot Vacuum Cleaner/eahNF0q7yvYCY8iXrJcjhQfk3uh2-yRpCrpM0oJltrrOr69oke9ah_tjXtj3XNDxeMXKgmGjXFzvYc3H_lkJ-Incwpv7dKzq7OGd0Q-SnA6Ojy2qOu2xSyh3WtAo_gDsKnA4P3N79hBoUzGY-XmFmgfJghr7AQKatqJWn00cf7RkP2fA1zsxTPVbUjIq1YAc.jpeg",
+  "/Yeedi C12 Robot Vacuum Cleaner/haJqs3-8MhNmpn_a0mIGRpd6rFNfV0gTHx-wpWLOQobGK60yybnKnk3hKFYGWyOzS52yOV_ISVmeCiUGXbwuTGpYIoYZLK-cVPPhYDfqLFQ8X9pgPEdNQuO4Gn4CC0nnPbwU2JiFARTn4zB_KaO3vmWaUoizwJXZ_G4JnSj9wOqA6-iwM0HrG0PyKOCIn1B-.jpeg",
 ];
 
 const neatoD10Images = [
-  "/DqlecYppnUuMmKGMPyBAFZ1hWs56W3jVeqYkI2dO6VRmYNjtPoMTafQfULUBOlxLGQMsrmIZ6Zb-mtTT3pE28y5Bv61hq01aN2ElCO1ynbTEl5GSeBgibdxnL_JukuiiKs6P3Y3JABKEJJeT7fDpCfdUJGF5WEwzfWB_NTHFFHIgA2IM1qliaHi9bxzYYsZe.jpeg",
-  "/W_6Is4lShvg4IqWDZ_0Nhw8mN_ovlaIXjM-_g9A5cSy8YvorPf8_2LhM4X-3tioLiObwahLUfnG5JM0cLPH-zIeMoSeuL2cVuUUjKkTh6V-0dO_ZQ2HzxuNKO2ayDLyVpT4zgaGAxrOvkVEpqvcuJZzu0RvmflibMJn3W7qnP8ErQ9wYKpTfBOyacR9_5Jt4.jpeg",
-  "/uPTyU9D7IUYIFG6-DUwjn-_5zy_f5kIAZooWjNxOmg7TvBJcjyZN-aWCQP1DQcF16_66Ko0rfolA2Qw8gb5wrkn9r8ebKnsRZtiICvcDCRg5C3rrO_iY_nwJKyhv0DvwU_NH9xzu7alz1pC7-kqtITvwDazN-jyrj-63NrqR4ybthsW-XXXFfeRuAYrcNLvn.jpeg",
-  "/vpQo_JqCbS1QxfYERY8yGyOBdIjA7m8VcgbRnaHqBZ3z7YLZEovb9hNlr40COzcsgdod-BAoC8K18wMXcPeluH9lXH94GV1f77trkezYFn0dK6bbSiWt0B3XJL3_ny_tdCvwFxPAKTGAkhbuDPHxyidrnnJApjM7fZJUIpJMdyJhHRSVwGSnYshik5n3316H.jpeg",
-  "/wm7T3OeJKyH7-H_4ABCT4EpXDWGT5oj4t5TSxsixjA-x0XT6dRsXn_kgqQ070G8RgAX0ddGE401I1mAbQNXKvkS_6GvhuAFN50XbbPJJXamR1TylkgqR6f-hFVUlvMKEhO6cL8Q7giaHN1-UGxpHWcEw3ZTVJWGKTd5ju7hT7Ee20V4GXc5c377UEq8F_7eK.jpeg",
-  "/ywCWBGTtpjd-cjwZXaHmbVuJ0f7apesSkM26zHhxQ8CX-tOGk4XdtMru8Oh1X9pMhdDEcUiAdDBnX1DMNDci53e0zkNkDF_p2GSqwHeza_qDTFKdiVwOkKKk0b4J03OwhOYi5gChzDubYcqC83BWUzHb4ss6W1CjSZEE4mjbxqzQP8KddwMXrpD-F8jahnes.jpeg",
+  "/Neato D10 Connected Robot Vacuum/DqlecYppnUuMmKGMPyBAFZ1hWs56W3jVeqYkI2dO6VRmYNjtPoMTafQfULUBOlxLGQMsrmIZ6Zb-mtTT3pE28y5Bv61hq01aN2ElCO1ynbTEl5GSeBgibdxnL_JukuiiKs6P3Y3JABKEJJeT7fDpCfdUJGF5WEwzfWB_NTHFFHIgA2IM1qliaHi9bxzYYsZe.jpeg",
+  "/Neato D10 Connected Robot Vacuum/W_6Is4lShvg4IqWDZ_0Nhw8mN_ovlaIXjM-_g9A5cSy8YvorPf8_2LhM4X-3tioLiObwahLUfnG5JM0cLPH-zIeMoSeuL2cVuUUjKkTh6V-0dO_ZQ2HzxuNKO2ayDLyVpT4zgaGAxrOvkVEpqvcuJZzu0RvmflibMJn3W7qnP8ErQ9wYKpTfBOyacR9_5Jt4.jpeg",
+  "/Neato D10 Connected Robot Vacuum/uPTyU9D7IUYIFG6-DUwjn-_5zy_f5kIAZooWjNxOmg7TvBJcjyZN-aWCQP1DQcF16_66Ko0rfolA2Qw8gb5wrkn9r8ebKnsRZtiICvcDCRg5C3rrO_iY_nwJKyhv0DvwU_NH9xzu7alz1pC7-kqtITvwDazN-jyrj-63NrqR4ybthsW-XXXFfeRuAYrcNLvn.jpeg",
+  "/Neato D10 Connected Robot Vacuum/vpQo_JqCbS1QxfYERY8yGyOBdIjA7m8VcgbRnaHqBZ3z7YLZEovb9hNlr40COzcsgdod-BAoC8K18wMXcPeluH9lXH94GV1f77trkezYFn0dK6bbSiWt0B3XJL3_ny_tdCvwFxPAKTGAkhbuDPHxyidrnnJApjM7fZJUIpJMdyJhHRSVwGSnYshik5n3316H.jpeg",
+  "/Neato D10 Connected Robot Vacuum/wm7T3OeJKyH7-H_4ABCT4EpXDWGT5oj4t5TSxsixjA-x0XT6dRsXn_kgqQ070G8RgAX0ddGE401I1mAbQNXKvkS_6GvhuAFN50XbbPJJXamR1TylkgqR6f-hFVUlvMKEhO6cL8Q7giaHN1-UGxpHWcEw3ZTVJWGKTd5ju7hT7Ee20V4GXc5c377UEq8F_7eK.jpeg",
+  "/Neato D10 Connected Robot Vacuum/ywCWBGTtpjd-cjwZXaHmbVuJ0f7apesSkM26zHhxQ8CX-tOGk4XdtMru8Oh1X9pMhdDEcUiAdDBnX1DMNDci53e0zkNkDF_p2GSqwHeza_qDTFKdiVwOkKKk0b4J03OwhOYi5gChzDubYcqC83BWUzHb4ss6W1CjSZEE4mjbxqzQP8KddwMXrpD-F8jahnes.jpeg",
 ];
 
 const samsungJetBotImages = [
-  "/4tAad8nCUiWKI1ZqKcP3hUDROMuG5HbuF3VBvBVDnanDHyD8goC69w9dYy97M2piE7sNSh2qDOr3CcFXGDnuk1weCzFiwReOy4LdQ2Ok4htEIpbg21rLwM9nCyQTRItKviQZmeOr2Nfn1IjmW_5kezVGkpHpqqMC0NuabLvvzBZKUqcqOChYozfzbWSxlyum.jpeg",
-  "/RlttQI0s_yHQQoYDXOcTcCUCzS6DluF3EZMOpwaArz1Eip7nTQL-pjKb2_WPeq6RF4kE6QJoGwtfTB4Az6h8NJ1ONKeD4pj8rA2epP06sSg5GoiK4r5unjKS4Ri7MkYWPPtt2O24uQqZ8wTh_STjmmO7Ha7hJRQ7c-0vmPz_Sgyp92DQ6R8wbug69CJzXrpp.jpeg",
-  "/Uh2N8mhRixBkmtLVSbblhSpX7GabyjKlMJiK_nsUnvuRyWowTrI0QFPALQPAI5uBya_CWszDadQTsPXiO5JlKQPisrwgzJ2wuDwhti_hkjE5z-zNeRdDtZTOXq7jegP2s6M0IT8nhrvxdJHkEXY34PIuKtDWdn2okUoUmi0UZpDxVPNJT39nTp9sV6zzbY4Z.jpeg",
-  "/XvVbBuVTJSH324RcAbK8zI0YdPrBvmtDLYys133QXREL8dqUbgq3k-Ub8t1iCvl4jTh08JHKJQ6uTw0mctbbf_q4z0vHYHCy2r2eZgtIooadrL45lR1uAtD5R9zBMzIxasVIcaC7XskKmW-PxnZdigX0ET3OgueqX1rc370XeWIKdaQ1lIWnVedEjnTUXbaT.jpeg",
-  "/eKheMFOfSgO5A4Mux9UZ0SH9V06BiGgnWCxvUVPVTYGXFRswZgF97WYFrpZW2AMff9QW47sQ__rGtQ_gjB6LgRlaxE5aurnjI-2J2cwQhIjNLu13rzCHOZqQ2n4XFN6g4-Ow97jvMuS3w27DA5Rq1y9zzqTR5kiRmF8s2yb2o52gCCGOw1hZ4yHjyNQa35_k.jpeg",
-  "/eKheMFOfSgO5A4Mux9UZ0SH9V06BiGgnWCxvUVPVTYGXFRswZgF97WYFrpZW2AMff9QW47sQ__rGtQ_gjB6LgRlaxE5aurnjI-2J2cwQhIjNLu13rzCHOZqQ2n4XFN6g4-Ow97jvMuS3w27DA5Rq1y9zzqTR5kiRmF8s2yb2o52gCCGOw1hZ4yHjyNQa35_k (1).jpeg",
-  "/xrFKORjcqpG0O1IB61kwnrcME8m3ZVwQs49yaETtBnSR4PipwdxW99fFbA_z48Zd8u912JlyeLgmfuQngg1CgsKrVrP9w22HZ40HY3yioxRn5NkX3ALNH03DW6STBDnghmmM59Ynrjaep9MSt8liZCqUd_nF31BrcxMshY5qazp7Ijve-YVdu-iTAp7OHogl.jpeg",
+  "/Samsung Jet Bot+ Robot Vacuum/4tAad8nCUiWKI1ZqKcP3hUDROMuG5HbuF3VBvBVDnanDHyD8goC69w9dYy97M2piE7sNSh2qDOr3CcFXGDnuk1weCzFiwReOy4LdQ2Ok4htEIpbg21rLwM9nCyQTRItKviQZmeOr2Nfn1IjmW_5kezVGkpHpqqMC0NuabLvvzBZKUqcqOChYozfzbWSxlyum.jpeg",
+  "/Samsung Jet Bot+ Robot Vacuum/RlttQI0s_yHQQoYDXOcTcCUCzS6DluF3EZMOpwaArz1Eip7nTQL-pjKb2_WPeq6RF4kE6QJoGwtfTB4Az6h8NJ1ONKeD4pj8rA2epP06sSg5GoiK4r5unjKS4Ri7MkYWPPtt2O24uQqZ8wTh_STjmmO7Ha7hJRQ7c-0vmPz_Sgyp92DQ6R8wbug69CJzXrpp.jpeg",
+  "/Samsung Jet Bot+ Robot Vacuum/Uh2N8mhRixBkmtLVSbblhSpX7GabyjKlMJiK_nsUnvuRyWowTrI0QFPALQPAI5uBya_CWszDadQTsPXiO5JlKQPisrwgzJ2wuDwhti_hkjE5z-zNeRdDtZTOXq7jegP2s6M0IT8nhrvxdJHkEXY34PIuKtDWdn2okUoUmi0UZpDxVPNJT39nTp9sV6zzbY4Z.jpeg",
+  "/Samsung Jet Bot+ Robot Vacuum/XvVbBuVTJSH324RcAbK8zI0YdPrBvmtDLYys133QXREL8dqUbgq3k-Ub8t1iCvl4jTh08JHKJQ6uTw0mctbbf_q4z0vHYHCy2r2eZgtIooadrL45lR1uAtD5R9zBMzIxasVIcaC7XskKmW-PxnZdigX0ET3OgueqX1rc370XeWIKdaQ1lIWnVedEjnTUXbaT.jpeg",
+  "/Samsung Jet Bot+ Robot Vacuum/eKheMFOfSgO5A4Mux9UZ0SH9V06BiGgnWCxvUVPVTYGXFRswZgF97WYFrpZW2AMff9QW47sQ__rGtQ_gjB6LgRlaxE5aurnjI-2J2cwQhIjNLu13rzCHOZqQ2n4XFN6g4-Ow97jvMuS3w27DA5Rq1y9zzqTR5kiRmF8s2yb2o52gCCGOw1hZ4yHjyNQa35_k.jpeg",
+  "/Samsung Jet Bot+ Robot Vacuum/eKheMFOfSgO5A4Mux9UZ0SH9V06BiGgnWCxvUVPVTYGXFRswZgF97WYFrpZW2AMff9QW47sQ__rGtQ_gjB6LgRlaxE5aurnjI-2J2cwQhIjNLu13rzCHOZqQ2n4XFN6g4-Ow97jvMuS3w27DA5Rq1y9zzqTR5kiRmF8s2yb2o52gCCGOw1hZ4yHjyNQa35_k (1).jpeg",
+  "/Samsung Jet Bot+ Robot Vacuum/xrFKORjcqpG0O1IB61kwnrcME8m3ZVwQs49yaETtBnSR4PipwdxW99fFbA_z48Zd8u912JlyeLgmfuQngg1CgsKrVrP9w22HZ40HY3yioxRn5NkX3ALNH03DW6STBDnghmmM59Ynrjaep9MSt8liZCqUd_nF31BrcxMshY5qazp7Ijve-YVdu-iTAp7OHogl.jpeg",
 ];
 
 const defaultReviews: CatalogReview[] = [
@@ -252,8 +251,8 @@ const defaultReviews: CatalogReview[] = [
     author: "Thabo M.",
     location: "Johannesburg, SA",
     rating: 5,
-    title: "Strong reseller margin",
-    text: "The landed cost still left me room for ads and support. Customers liked the self-emptying feature and delivery was smooth.",
+    title: "Excellent cleaning performance",
+    text: "The self-emptying feature is a game-changer. My floors have never been cleaner, and the app control makes it so convenient.",
     verified: true,
     date: "2 weeks ago",
     helpful: 18,
@@ -263,8 +262,8 @@ const defaultReviews: CatalogReview[] = [
     author: "Nomsa K.",
     location: "Cape Town, SA",
     rating: 5,
-    title: "Easy to position at a premium price",
-    text: "This model gave us enough margin to run promotions without crushing profit. The app control feature helps it sell quickly.",
+    title: "Great value for the price",
+    text: "This robot vacuum has exceeded my expectations. The app control feature is amazing and it handles pet hair perfectly.",
     verified: true,
     date: "1 month ago",
     helpful: 12,
@@ -352,7 +351,6 @@ const buildProduct = ({
     brand,
     priceZAR,
     minOrder: `${minimumOrder} ${minimumOrder === 1 ? "unit" : "units"}`,
-    profitMargin: formatMargin(supplierPriceRange[0], supplierPriceRange[1], priceZAR),
     features,
     rating,
     reviewCount,
@@ -366,7 +364,7 @@ const buildProduct = ({
       supplierPriceUSD,
       minimumOrder,
       dispatchWindow,
-      pricingNote: `Priced from the top of the Alibaba range using USD/ZAR ${USD_TO_ZAR} on ${FX_DATE}, an 18% landed-cost buffer, and a 32% ex-VAT target margin.`,
+      pricingNote: `Priced from the top of the Alibaba range using USD/ZAR ${USD_TO_ZAR} on ${FX_DATE} with an 18% landed-cost buffer.`,
     },
     highlights,
     reviews,
@@ -393,7 +391,7 @@ export const catalogProducts: CatalogProduct[] = [
       "/Hcae753344286406a93b743460ee2013fR.jpg",
       "/Hd5962381b0454b158cebc693cc1f99d5o.jpg",
     ],
-    description: "Self-emptying Teendow robot vacuum and mop with a price ceiling that still supports a healthy SA resale margin.",
+    description: "Self-emptying Teendow robot vacuum and mop with excellent cleaning performance and smart app control.",
     features: ["Wet & Dry Mopping", "Self-Emptying Dustbin", "App Control", "LDS Navigation"],
     specifications: {
       "Suction Power": "4000Pa",
@@ -434,7 +432,7 @@ export const catalogProducts: CatalogProduct[] = [
     highlights: [
       "Tight supplier range keeps pricing confidence high",
       "Better fit for buyers who want mapping without ultra-premium pricing",
-      "Estimated margin remains above target at the top quote",
+      "Excellent value for money at the top quote",
     ],
     sourceUrl: "https://www.alibaba.com/showroom/robot-vacuum-and-mop.html",
   }),

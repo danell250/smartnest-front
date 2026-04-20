@@ -9,7 +9,6 @@ export default function Cart() {
   const [, setLocation] = useLocation();
 
   const total = getTotalPrice();
-  const vatIncluded = total * (15 / 115);
 
   if (items.length === 0) {
     return (
@@ -137,12 +136,8 @@ export default function Cart() {
 
               <div className="space-y-2">
                 <div className="flex justify-between text-xs text-foreground">
-                  <span className="text-muted-foreground">Subtotal</span>
+                  <span className="text-muted-foreground">Subtotal (incl. VAT)</span>
                   <span className="font-semibold">R{total.toLocaleString('en-ZA', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
-                </div>
-                <div className="flex justify-between text-xs text-foreground">
-                  <span className="text-muted-foreground">VAT (15%)</span>
-                  <span className="font-semibold">R{vatIncluded.toLocaleString('en-ZA', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                 </div>
                 <div className="flex justify-between text-xs text-foreground">
                   <span className="text-muted-foreground">Shipping</span>
@@ -152,10 +147,9 @@ export default function Cart() {
 
               <div className="border-t border-border pt-3">
                 <div className="flex justify-between text-base font-bold text-foreground">
-                  <span>Total</span>
+                  <span>Total (incl. VAT)</span>
                   <span className="text-primary">R{total.toLocaleString('en-ZA', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                 </div>
-                <p className="text-xs text-muted-foreground mt-1">Including VAT</p>
               </div>
 
               <Button

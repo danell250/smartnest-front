@@ -196,7 +196,6 @@ export default function ProductDetail({ params }: { params: { id: string } }) {
                 </div>
                 <div className="flex items-center justify-between text-xs text-muted-foreground">
                   <span>Min Order: {product.minOrder}</span>
-                  <span>Margin: {product.profitMargin}</span>
                 </div>
               </Card>
 

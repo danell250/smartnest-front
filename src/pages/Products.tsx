@@ -331,7 +331,7 @@ export default function Products() {
 
                     <div className="border-t border-border pt-3 space-y-2">
                       <div className="flex justify-between items-center">
-                        <span className="text-xs text-muted-foreground">Price:</span>
+                        <span className="text-xs text-muted-foreground">Price (incl. VAT):</span>
                         <span className="text-lg font-bold text-primary">R{product.priceZAR.toLocaleString()}</span>
                       </div>
                       <p className="text-xs text-muted-foreground">Min: {product.minOrder}</p>
