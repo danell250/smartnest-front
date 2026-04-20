@@ -20,7 +20,7 @@ export default function Checkout() {
     address: "",
     city: "",
     postalCode: "",
-    province: "",
+    province: localStorage.getItem('selectedProvince') || "",
   });
   const [isProcessing, setIsProcessing] = useState(false);
   const [shippingCost, setShippingCost] = useState(0);
@@ -29,7 +29,7 @@ export default function Checkout() {
 
   const subtotal = getTotalPrice();
   const tax = subtotal * (15 / 115);
-  const total = subtotal + tax + shippingCost;
+  const total = subtotal + shippingCost;
 
   // Calculate shipping when province changes
   useEffect(() => {
@@ -114,54 +114,45 @@ export default function Checkout() {
     }
   };
 
-  const createPayPalOrder = () => {
-    return handleSecureCheckout().then((orderData) => {
-      if (!orderData) {
-        throw new Error("Order data is missing");
-      }
-      // Convert ZAR to USD (approximate rate - in production, use a real API)
-      const zarToUsdRate = 0.055;
-      const totalUsd = (total * zarToUsdRate).toFixed(2);
-      
-      return totalUsd;
+  const createPayPalOrder = async () => {
+    const orderData = await handleSecureCheckout();
+    if (!orderData) {
+      throw new Error("Order data is missing");
+    }
+    
+    // Create order on backend
+    const orderResponse = await fetch(`${API_BASE}/api/orders`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        customerId: orderData.customerId,
+        items,
+        subtotal,
+        tax,
+        shipping: shippingCost,
+        total,
+        currency: 'ZAR',
+        shippingAddress: formData.address,
+        city: formData.city,
+        province: formData.province,
+        postalCode: formData.postalCode,
+      }),
     });
+
+    if (!orderResponse.ok) {
+      throw new Error('Failed to create order');
+    }
+
+    const orderResult = await orderResponse.json();
+    return orderResult.orderId;
   };
 
   const onApprove = async (data: any) => {
-    // Create order in backend after PayPal approval
-    if (!customerId) {
-      alert('Customer information missing. Please try again.');
-      return;
-    }
-
     setIsProcessing(true);
 
     try {
-      const orderResponse = await fetch(`${API_BASE}/api/orders`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          customerId,
-          items,
-          subtotal,
-          tax,
-          shipping: shippingCost,
-          total,
-          shippingAddress: formData.address,
-          city: formData.city,
-          province: formData.province,
-          postalCode: formData.postalCode,
-        }),
-      });
-
-      const orderData = await orderResponse.json();
-
-      if (!orderData.success) {
-        throw new Error('Failed to create order');
-      }
-
       // Update order with PayPal payment info
-      await fetch(`${API_BASE}/api/orders/${orderData.orderId}/payment`, {
+      const orderResponse = await fetch(`${API_BASE}/api/orders/${data.orderID}/payment`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -170,13 +161,19 @@ export default function Checkout() {
         }),
       });
 
+      if (!orderResponse.ok) {
+        throw new Error('Failed to update order payment');
+      }
+
+      const orderData = await orderResponse.json();
+
       alert(`Payment successful! Order #${orderData.orderNumber} has been placed.`);
       // Clear cart and redirect
       localStorage.removeItem("smartnest-cart");
       setLocation("/");
     } catch (error) {
-      console.error('Order creation failed:', error);
-      alert('Failed to create order. Please contact support.');
+      console.error('Order update failed:', error);
+      alert('Failed to update order. Please contact support.');
     } finally {
       setIsProcessing(false);
     }
@@ -333,11 +330,11 @@ export default function Checkout() {
 
               <div className="space-y-2">
                 <div className="flex justify-between text-xs text-foreground">
-                  <span>Subtotal</span>
+                  <span>Subtotal (incl. VAT)</span>
                   <span className="font-semibold">R{subtotal.toLocaleString("en-ZA", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                 </div>
                 <div className="flex justify-between text-xs text-foreground">
-                  <span>VAT (15%)</span>
+                  <span>VAT included</span>
                   <span className="font-semibold">R{tax.toLocaleString("en-ZA", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                 </div>
                 <div className="flex justify-between text-xs text-foreground">
@@ -357,7 +354,7 @@ export default function Checkout() {
               </div>
 
               <div className="border-t border-border pt-3 flex justify-between text-base font-bold text-foreground">
-                <span>Total</span>
+                <span>Total (incl. VAT)</span>
                 <span className="text-primary">R{total.toLocaleString("en-ZA", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
               </div>
             </Card>
