@@ -10,7 +10,7 @@ import { PayPalButtons } from "@paypal/react-paypal-js";
 const API_BASE = process.env.NODE_ENV === 'production' ? 'https://smartnestback.onrender.com' : 'http://localhost:3001';
 
 export default function Checkout() {
-  const { items, getTotalPrice } = useCart();
+  const { items, getTotalPrice, clearCart } = useCart();
   const [, setLocation] = useLocation();
   const [formData, setFormData] = useState({
     firstName: "",
@@ -25,11 +25,17 @@ export default function Checkout() {
   const [isProcessing, setIsProcessing] = useState(false);
   const [shippingCost, setShippingCost] = useState(0);
   const [estimatedDays, setEstimatedDays] = useState(0);
-  const [customerId, setCustomerId] = useState<number | null>(null);
+  const [pendingOrder, setPendingOrder] = useState<{
+    internalOrderId: number;
+    orderNumber: string;
+    paypalOrderId: string;
+    totalUSD: string;
+  } | null>(null);
 
   const subtotal = getTotalPrice();
   const tax = subtotal * (15 / 115);
   const total = subtotal + shippingCost;
+  const paypalTotalUsd = (total / storefrontInfo.paypalUsdToZarRate).toFixed(2);
 
   // Calculate shipping when province changes
   useEffect(() => {
@@ -80,100 +86,89 @@ export default function Checkout() {
     }
   };
 
-  const handleSecureCheckout = async () => {
+  const validateForm = () => {
     // Validate form
     if (!formData.firstName || !formData.lastName || !formData.email || !formData.phone || !formData.address || !formData.city || !formData.postalCode || !formData.province) {
       alert("Please fill in all fields");
-      return;
+      return false;
+    }
+
+    return true;
+  };
+
+  const createPayPalOrder = async () => {
+    if (!validateForm()) {
+      throw new Error("Please complete the checkout form");
     }
 
     setIsProcessing(true);
 
     try {
-      // Create or get customer
-      const customerResponse = await fetch(`${API_BASE}/api/customers`, {
+      const response = await fetch(`${API_BASE}/api/checkout/paypal-order`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          items,
+        }),
       });
-      const customerData = await customerResponse.json();
+      const data = await response.json();
 
-      if (!customerData.success) {
-        throw new Error('Failed to create customer');
+      if (!response.ok || !data.success) {
+        throw new Error(data.error || 'Failed to initialize checkout');
       }
 
-      setCustomerId(customerData.customerId);
+      setPendingOrder({
+        internalOrderId: data.orderId,
+        orderNumber: data.orderNumber,
+        paypalOrderId: data.paypalOrderId,
+        totalUSD: data.totalUSD,
+      });
 
-      setIsProcessing(false);
-      return { customerId: customerData.customerId };
+      setShippingCost(data.shippingCost);
+      setEstimatedDays(data.estimatedDays);
+
+      return data.paypalOrderId;
     } catch (error) {
       console.error('Checkout failed:', error);
-      alert('Failed to process checkout. Please try again.');
+      alert(error instanceof Error ? error.message : 'Failed to process checkout. Please try again.');
+      throw error;
+    } finally {
       setIsProcessing(false);
-      return null;
     }
-  };
-
-  const createPayPalOrder = async () => {
-    const orderData = await handleSecureCheckout();
-    if (!orderData) {
-      throw new Error("Order data is missing");
-    }
-    
-    // Create order on backend
-    const orderResponse = await fetch(`${API_BASE}/api/orders`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        customerId: orderData.customerId,
-        items,
-        subtotal,
-        tax,
-        shipping: shippingCost,
-        total,
-        currency: 'ZAR',
-        shippingAddress: formData.address,
-        city: formData.city,
-        province: formData.province,
-        postalCode: formData.postalCode,
-      }),
-    });
-
-    if (!orderResponse.ok) {
-      throw new Error('Failed to create order');
-    }
-
-    const orderResult = await orderResponse.json();
-    return orderResult.orderId;
   };
 
   const onApprove = async (data: any) => {
     setIsProcessing(true);
 
     try {
-      // Update order with PayPal payment info
-      const orderResponse = await fetch(`${API_BASE}/api/orders/${data.orderID}/payment`, {
+      if (!pendingOrder) {
+        throw new Error('No pending order found for this payment');
+      }
+
+      const orderResponse = await fetch(`${API_BASE}/api/orders/${pendingOrder.internalOrderId}/capture`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          paymentId: data.orderID,
-          paymentStatus: 'COMPLETED',
+          paypalOrderId: data.orderID,
         }),
       });
 
       if (!orderResponse.ok) {
-        throw new Error('Failed to update order payment');
+        const errorData = await orderResponse.json().catch(() => null);
+        throw new Error(errorData?.error || 'Failed to capture payment');
       }
 
       const orderData = await orderResponse.json();
 
       alert(`Payment successful! Order #${orderData.orderNumber} has been placed.`);
-      // Clear cart and redirect
-      localStorage.removeItem("smartnest-cart");
+      clearCart();
+      localStorage.removeItem("selectedProvince");
+      setPendingOrder(null);
       setLocation("/");
     } catch (error) {
       console.error('Order update failed:', error);
-      alert('Failed to update order. Please contact support.');
+      alert(error instanceof Error ? error.message : 'Failed to update order. Please contact support.');
     } finally {
       setIsProcessing(false);
     }
@@ -298,8 +293,12 @@ export default function Checkout() {
                 <div className="flex items-start gap-2 p-3 bg-blue-50 rounded-lg border border-blue-200">
                   <AlertCircle className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
                   <p className="text-xs text-foreground">
-                    Pay securely using PayPal. Your payment information is protected and processed directly by PayPal.
+                    Pay securely using PayPal. PayPal does not support ZAR checkout, so your final charge will be processed in USD at our store rate of R{storefrontInfo.paypalUsdToZarRate.toFixed(2)} per $1.
                   </p>
+                </div>
+
+                <div className="rounded-lg border border-border bg-muted/30 p-3 text-xs text-foreground">
+                  Estimated PayPal charge: <span className="font-semibold">${pendingOrder?.totalUSD || paypalTotalUsd} USD</span>
                 </div>
 
                 <div className="pt-2">

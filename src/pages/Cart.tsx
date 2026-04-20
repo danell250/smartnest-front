@@ -14,15 +14,15 @@ export default function Cart() {
 
   // Shipping rates for South African provinces
   const shippingRates: Record<string, { baseRate: number; perKgRate: number; estimatedDays: number }> = {
-    GP: { baseRate: 89, perKgRate: 15, estimatedDays: 3 },
-    WC: { baseRate: 129, perKgRate: 18, estimatedDays: 5 },
-    KZN: { baseRate: 119, perKgRate: 17, estimatedDays: 4 },
-    EC: { baseRate: 149, perKgRate: 20, estimatedDays: 6 },
-    FS: { baseRate: 109, perKgRate: 16, estimatedDays: 4 },
-    LP: { baseRate: 119, perKgRate: 17, estimatedDays: 5 },
-    MP: { baseRate: 109, perKgRate: 16, estimatedDays: 4 },
-    NC: { baseRate: 139, perKgRate: 19, estimatedDays: 6 },
-    NW: { baseRate: 109, perKgRate: 16, estimatedDays: 4 },
+    GP: { baseRate: 89, perKgRate: 15, estimatedDays: 7 },
+    WC: { baseRate: 129, perKgRate: 18, estimatedDays: 9 },
+    KZN: { baseRate: 119, perKgRate: 17, estimatedDays: 8 },
+    EC: { baseRate: 149, perKgRate: 20, estimatedDays: 10 },
+    FS: { baseRate: 109, perKgRate: 16, estimatedDays: 8 },
+    LP: { baseRate: 119, perKgRate: 17, estimatedDays: 9 },
+    MP: { baseRate: 109, perKgRate: 16, estimatedDays: 8 },
+    NC: { baseRate: 139, perKgRate: 19, estimatedDays: 10 },
+    NW: { baseRate: 109, perKgRate: 16, estimatedDays: 8 },
   };
 
   const provinceNames: Record<string, string> = {
