@@ -36,26 +36,6 @@ export default function SiteFooter() {
           </div>
         </div>
         <div className="border-t border-white/20 pt-8 mt-8">
-          <div className="flex flex-wrap justify-center items-center gap-6 mb-8 opacity-60">
-            <div className="flex items-center gap-2 border border-white/20 px-3 py-1 rounded">
-              <span className="text-xs font-bold">PayFast</span>
-            </div>
-            <div className="flex items-center gap-2 border border-white/20 px-3 py-1 rounded">
-              <span className="text-xs font-bold">Ozow</span>
-            </div>
-            <div className="flex items-center gap-2 border border-white/20 px-3 py-1 rounded">
-              <span className="text-xs font-bold">VISA</span>
-            </div>
-            <div className="flex items-center gap-2 border border-white/20 px-3 py-1 rounded">
-              <span className="text-xs font-bold">Mastercard</span>
-            </div>
-            <div className="flex items-center gap-2 border border-white/20 px-3 py-1 rounded">
-              <span className="text-xs font-bold">The Courier Guy</span>
-            </div>
-            <div className="flex items-center gap-2 border border-white/20 px-3 py-1 rounded">
-              <span className="text-xs font-bold">Aramex</span>
-            </div>
-          </div>
           <div className="text-center text-sm opacity-75">
             <p>&copy; 2026 {storefrontInfo.businessName}. All rights reserved.</p>
             <p className="mt-2 text-xs opacity-50">SmartNest SA is a proud South African company. Secure encrypted payments.</p>

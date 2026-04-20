@@ -208,7 +208,7 @@ export default function Home() {
                   <Shield className="w-6 h-6 text-primary" />
                 </div>
                 <h4 className="font-semibold">Secure Checkout</h4>
-                <p className="text-sm text-muted-foreground">Pay securely via PayFast or Ozow. Your data is always encrypted and protected.</p>
+                <p className="text-sm text-muted-foreground">Pay securely online. Your data is always encrypted and protected.</p>
               </div>
               <div className="text-center space-y-3">
                 <div className="bg-primary/10 w-12 h-12 rounded-full flex items-center justify-center mx-auto">
