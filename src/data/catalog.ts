@@ -14,6 +14,7 @@ export interface CatalogProduct {
   id: number;
   name: string;
   brand: string;
+  category: "Robot Vacuums" | "Security" | "Lighting";
   priceZAR: number;
   minOrder: string;
   features: string[];
@@ -54,88 +55,88 @@ const imagePool = [
 ];
 
 const teendowImages = [
-  "/Teendow D10S MAX Robot Vacuum/H4ffe5a39971f4c1fb6ce02f204809979W.jpg",
-  "/Teendow D10S MAX Robot Vacuum/H649cfd410f2741ae93572b13c4333019Q.jpg",
-  "/Teendow D10S MAX Robot Vacuum/H78638f29bc124f628a5f8ad3a00761dcx.jpg",
-  "/Teendow D10S MAX Robot Vacuum/H96dcc77ebbf24240aac2f4028f768337k.jpg",
-  "/Teendow D10S MAX Robot Vacuum/Hcae753344286406a93b743460ee2013fR.jpg",
-  "/Teendow D10S MAX Robot Vacuum/Hd5962381b0454b158cebc693cc1f99d5o.jpg",
+  "/teendow-d10s-max-robot-vacuum-1.jpg",
+  "/teendow-d10s-max-robot-vacuum-2.jpg",
+  "/teendow-d10s-max-robot-vacuum-3.jpg",
+  "/teendow-d10s-max-robot-vacuum-4.jpg",
+  "/teendow-d10s-max-robot-vacuum-5.jpg",
+  "/teendow-d10s-max-robot-vacuum-6.jpg",
 ];
 
 const teendowLDSImages = [
-  "/Teendow LDS Self-Emptying Robot Vacuum/NWCvWGw7NbE40_v4ajhs-j8EKzqPcdggBoDcjGYzVA3ERIgZCr2hGkscoY37CZWYl3wKKmAbA89LtDVSLgu7u7ylL7GZjWB3djkb8xNl9mHKEcE6bfh5ag39zdKec3UVjWM0KPjJs8eNwIy2PjEJb7W7wdN9ErtryKIo_OIzjuJ1dY9ovr_r_TMPiDfTOVLq.jpeg",
-  "/Teendow LDS Self-Emptying Robot Vacuum/iruw9c5fN-9MhqlfCrdBp-SidSgZNknJaaJ1xQD-kKoxHOeDe2rfXNTDDO7wLLKMhqzEh9G9PGgvBSQQBjPpzSFeQ7SIcusfRp0k5GMvo8oclA9Pu_yyH1ZpdW0hru3U-1hTeT0tBJh8Uzm5tJxIoewenAVBEtSRMKDDMJCL49ERi5hKhwVfZpxv5tMVmJNJ.jpeg",
+  "/teendow-lds-self-emptying-robot-vacuum-1.jpeg",
+  "/teendow-lds-self-emptying-robot-vacuum-2.jpeg",
 ];
 
 const airroboImages = [
-  "/AIRROBO USA Multifunctional Vacuum/AyBFkLQm80yxjG8ppIQr9OoJYKOTBh_U9Yij-EXoXdQeABgGjeBVYs67ihcGqP7gJ-U1bLiD62yhzV6U5YiG-jrUboY59X9w2YMEQRvc1stAmg5BdVY8-dME6kjLhQtRg4ainIw0v4W9XbN2fxgypssZpvLAcOs9bzv6nxFHchCIWDcwl1LMS5kdGCHOwnzA.jpeg",
-  "/AIRROBO USA Multifunctional Vacuum/EP4q-Tp92XMkBf76WhpJrygXrIcaOqkikI3NDZwWTIJaUatfCWL31DfMElKQ1WWoJ52FDbXkWm56Tgqakjq8afOkzGdm11kXMKEH9_gDz3MsIzdwE0PGrY2-JYq7cB9G58hNvFUc6QfPyIMxiCxNI3HVof0lHJvSM5SEkPKLf2ouCTPvNrGMLoThnabknrei.jpeg",
-  "/AIRROBO USA Multifunctional Vacuum/ISWgPKOICIiUwvhtnlAgicQ2xuZghPJLl_PdtATVKXn2KO-viqF9Xc2jXmVTe9GD6lrVW49t9MhL-DNDym1qbBhVOf35dPElkKuDJ44l3pgsBuTA5_ZfwNxQTTib3T8tOkc9AurWBcJlfoI552sNgTWdilZ25vKl2Y_Umcn3TlQ7KY_uj10czflGfN-OrdYK.jpeg",
-  "/AIRROBO USA Multifunctional Vacuum/NrrvY1o_c-IRD9Pixcu1KiYXKJN7Y748aPlCsq-uj-kuvcQ4NkYIRCWhAorVSP-7D840Cw8qdbNzQoV5iZn9CtQPZkBcPsUDnb0sPfTIUP-FFYPAwlO-ivfNzCfLySrKo5dUYyX-HdxzXdUMVBwO1H1SgvP9iU8Knc3qxmWles1qbXPkZ2CGEIi45QgMbAk-.jpeg",
-  "/AIRROBO USA Multifunctional Vacuum/alZXtuKPUeKFYcQA9Gy2BWv_yW5Og4A3KhOqVsnhLKXM7z_zBaxczs25xoOaMC8ST7-DFJgTdHu_axYUZ0UEURkC78BScR9rUAOQGA01-i2yLzY-7wBkeDOSierIyatx_ZHDScmAungRpu-FV7Zyps8w2OrD2YoB3BfaKhDyXVSxu9cCCe2CEKJDPH7u0Oe4.jpeg",
-  "/AIRROBO USA Multifunctional Vacuum/p9__czIL9RgJ8bg5Y7bTl-TgUPDNc0OsCZsntxmDUfPsUoGzlOB3p9U5IReTdGrOQeBTZIT_QsGhgHdFw4JopQrT_cxs7WbSm42bxdH-kAO_LNDe1bRkd4pXQG4-XGrHTkfTV_tE5Ky68Lq5sjVTiLSaNIL3KvZ1GZa3b8BnIP7DVpFWMofngGEQilNppWal.jpeg",
-  "/AIRROBO USA Multifunctional Vacuum/wwDwE8drKJ1WA__0p3N7Hb_pujw4NCsLc-3wjqiOOQKL9PJlngD99A5pDX2mc--MZMw8H8RT1TjJSFR2aUeexMUYkPqAV29tIO35jTAobqPrP18-lF2DPXaq5zyR7ckRwNfYSmWG2IxfsLfjTSzwXdlM6XtEIAlKxX1k6eL4wGkrTZF4F-SfE3UmqTjv7mQH.jpeg",
+  "/airrobo-usa-multifunctional-vacuum-1.jpeg",
+  "/airrobo-usa-multifunctional-vacuum-2.jpeg",
+  "/airrobo-usa-multifunctional-vacuum-3.jpeg",
+  "/airrobo-usa-multifunctional-vacuum-4.jpeg",
+  "/airrobo-usa-multifunctional-vacuum-5.jpeg",
+  "/airrobo-usa-multifunctional-vacuum-6.jpeg",
+  "/airrobo-usa-multifunctional-vacuum-7.jpeg",
 ];
 
 const airrobo5500Images = [
-  "/IRROBO 5500Pa Rubber Brush/2HmWk7ltkFjDdk_or2E9DQGfEIOfuahGIBfJ0xMhvEecC6ANYnxhEq02kDpUBhHA8pZswGiHsnnacNIXXUih1T3NjKKneMx_viJsSwiMmMaiPRorJmqkZxoW46_C5LRm3ou2XpeD49fitZAW5xys9ZOkxItcJpeX1tuBoCPCb4OUdHculK8tGhyWnx46LcbG.jpeg",
-  "/IRROBO 5500Pa Rubber Brush/5bhk9ohGESf8WDUKmI2BLPjo3zsaGx2yce0R7ZSVkdSEzsJFPCtBuV1imDWA2MvE0B4PDCk9CO3YH5maQ_P1KlMQ2WK4EiBqsmohFJ2llOxwmoedLm5_psqeGj4Wf_HnETYS5zH4F5rpqqVwajVBl9CjSSXagP2Ql37JI0jmOWbM0g1XicKBqO7YVaw3bQNW.jpeg",
-  "/IRROBO 5500Pa Rubber Brush/Eyk-J1nBJbdYn0uj7Uzg4b0HiYs1hulKiglY4qyEASfRChxpA-kOKdCEyV8dUYK89L54Z0UlG3Awd2ws2GnRiWgSmhMFbfRtc2a-boocBTdwbaY8Z8IiXyf0XknjfhGMZpBK4NsPVCTXKuJPaOyuhbi820DaMrqZctyG2XVirMmYwQ9zn9h0LZdIqTNFskZM.jpeg",
-  "/IRROBO 5500Pa Rubber Brush/tNFti7s_v2nTD-TNQGdhya6eu8AWSTNREoXEpkl8DKv9oUglp10gWjIvTbnRzNagMxvbuiu5NMAoNPDmnSicpbUtv4tBCmvUJAjGMQNwHpkLZLGOqOpVNRp1VR2zvQ9o_bqUTN4iAJVeLp2kJstaEhOrk4WrAjKoXyURZc8mtkls5oqjpgxLtV6nHLwMv_bG.jpeg",
+  "/irrobo-5500pa-rubber-brush-1.jpeg",
+  "/irrobo-5500pa-rubber-brush-2.jpeg",
+  "/irrobo-5500pa-rubber-brush-3.jpeg",
+  "/irrobo-5500pa-rubber-brush-4.jpeg",
 ];
 
 const ultraHepaImages = [
-  "/Ultra HEPA Auto Mop Robot Vacuum/LAYsN1pdkcbuPMHZPGI5bG3Eab3nHN1n0VUUt-oQx0_lgEe6-7fhpCzdn3i_UQKP9LddABun0oJWswZAe2KQxSTTs72te_6AOIzWHSEl9Ajawm3sbbxOkrjpPhz_jgqEfRbryXALHFX22GDPtZsdXOTC5k9EhlVcb4GcQU2iId-nj2GISOeXKEKlmJXriANn.jpeg",
-  "/Ultra HEPA Auto Mop Robot Vacuum/NH_kUlCNUyDE54c-vRUUxvF-UUIC0lR21Q4fGh2ZExEjWmSzfz1fHf3BOqzWQaXEldZWByUrFwr72PV7ButLLyHLLMJhvIYjtMK-09Slh0z0ZGjJfUGe7fpjP3pHIRLIF76Y_d2nK2hOgCFh8V3zjmC1wZn8QW4VHmKvunh76cDtZX8AQwcx65VUo46Ig_Zg.jpeg",
-  "/Ultra HEPA Auto Mop Robot Vacuum/qAxL4tsX7Ru-uG20MjcLedVpbBdAmz4uAEPw5q7uJgbVEPHE9-3tBQeArL9zr3pS0Uf--xS_qTk-HBbd0cQzLxbUwpbVu6vSP8RgCwa4UbpB_nsiTwVdiGyprf7cw9vBtwVbOujt4NqF-75t03QvW1z68r-9BNZac_enMfAvSOhpJvAcxqVRbXBDDsnE2Pp9.jpeg",
-  "/Ultra HEPA Auto Mop Robot Vacuum/sKLQ5MEOPZfIHPZXHDnb5hpfKM1FaHyFMWAXGozWVH5H3SlHG9OQYO48FeNCY3q7ndbmudzLMTws4Y5Si4UNquE3CuOQyAJPWju2CEBUa9I5QW2JbqVOGOeVkXLeu1JZP0Lk0liI91h0-OVDzIUMjAmZEe21vds8RXMfpF5xJgNmGNbJz--XFsr75_SSsp0a.jpeg",
-  "/Ultra HEPA Auto Mop Robot Vacuum/wimuM15hrHANULZgIql_2DdFGVJ-mLFOYFHH7XsnYp4xhA-pSZtQtPXaK-azoZBEgS776Z8Sh5GaR48Rh-sfMFK3L-1t68qnnXj1iPQLfrC7-f66Z_4pRLPvz3L4o1LoGD-Wn0nsZ1_7q3HaOV0EqrHY6jrxLy8zUZ0ZMdznZEZzWOS1Inilnr0AdYMoICrf.jpeg",
-  "/Ultra HEPA Auto Mop Robot Vacuum/zLgVd-p7j2RN3jHsYvXGJl-mDR_fewY1bhAhAgDs1MO-MAPkyJe2Ry6ZpYvEW3VSc_2hCh3p8JrtYPx1D1UMeV7LNdJNdVsZf2OP1g9HgRjj_idqVGRCzdbcGfQIXaYhZCPlOGqCsplYUUDSz65vVy6yVVwKFFEd1gqPmrWzUyQpk7zcc117TbGJV9AcuCHQ.jpeg",
+  "/ultra-hepa-auto-mop-robot-vacuum-1.jpeg",
+  "/ultra-hepa-auto-mop-robot-vacuum-2.jpeg",
+  "/ultra-hepa-auto-mop-robot-vacuum-3.jpeg",
+  "/ultra-hepa-auto-mop-robot-vacuum-4.jpeg",
+  "/ultra-hepa-auto-mop-robot-vacuum-5.jpeg",
+  "/ultra-hepa-auto-mop-robot-vacuum-6.jpeg",
 ];
 
 const lefantImages = [
-  "/Lefant M210 Mini Robot Vacuum/-bBbkknuAahKonDGZzy_-AbK7DUTq6eWCgr0Oi_TNXt8JmmGZsgu2v1calB-5cacAC1DnG60NJsTP6GfGMW0krWmj-0QdExzswHERzKAwKvMRRvZk3k2QLC5paiWHbc_zEtDW26_zmd6vxyqSLat3jdLObvq0N8CpwlvUHYzztf_0OODTLoptlMzZJb2KxV8.jpeg",
-  "/Lefant M210 Mini Robot Vacuum/IFs_-YGi77ZHyZbilTKffS3RW66Y7J3aHbQATOKU7VTgbhdVHC5GmydV2RfBdc5DhTD4scHGiRLxPkYpbiPYAONbh-liw2cvCHbx8ZKBqFJC1N81BIdqPYjGCabST4xafKfHGEqjFjpBg42RQaj1z2aXHOSLLwD8lSfo6BF6Nl2sVpJoqGMsdQy1IS5jHtHw.jpeg",
-  "/Lefant M210 Mini Robot Vacuum/YCCaAvvM3eyRPYxj8Pc7wR_pQsTO-Kh5z5zLX5Wp1v24WUZiPp3fXwj37kXa8tjIg4-tcyCnVcZfOaisEB658HV0FpZx2ar167HyL6nZmQohGLttPJnkdc45Xk5mBPFGEpZ5DcWmpJ3IB7dcc1Atu_IoTOb1rfKUGq5cAwJgJOakQT7tx7dS938UYUL9ZjPa.jpeg",
-  "/Lefant M210 Mini Robot Vacuum/ib_iE2cfwK8hqp9OaNwMBh8h8laladTzknAf7pQZbLt7_y5beIaUD1gzGU5HrY9cdAyP3IEi3iMPgXNq7ZAbmRG8efMqfT2ttk7NcdtJSOKLBRUcwoCTcFr8kLSJd498f0y3Y5KxrghL0l1JLHfzaTiFFxkxhQyUyhvcRjSsJYhwcWAUdZ7RXYSFjFewEhKm.jpeg",
-  "/Lefant M210 Mini Robot Vacuum/tAeWZIKFRjJqp-qbNnqE7_clA9r3MI43joUrpocihyWTWfy5c4sUcrKIbHb354ly-78Krl4aIQQiu7vOdr7OoS6V6AWQPTswxTkPf3HFea19AUgP_GdXW7oli2-ZupxID_r0ozcm1slozFUh0vV1R6rqSU23s8V1oMFd8SGoK3muVG9p2stytS3OeJI54kBx.jpeg",
-  "/Lefant M210 Mini Robot Vacuum/uHrt2wZVDOA8QvGe38G4nTBV222CjYQc3IUKi3l5_tkALGfOThZXQ4Bjsj6rvKeleTRzgwL8VLMrgvBYYmGmtyL7bLxMZOsVgIEQ2NZAb38Z3qK7CknWiGV2o_pSnRdRznVxDO1uvaJDZiS4zNQCMA5x4cc0wnZ2iN5bbA5YhBForTjSYpthiCmpMXgW4Ol1.jpeg",
+  "/lefant-m210-mini-robot-vacuum-1.jpeg",
+  "/lefant-m210-mini-robot-vacuum-2.jpeg",
+  "/lefant-m210-mini-robot-vacuum-3.jpeg",
+  "/lefant-m210-mini-robot-vacuum-4.jpeg",
+  "/lefant-m210-mini-robot-vacuum-5.jpeg",
+  "/lefant-m210-mini-robot-vacuum-6.jpeg",
 ];
 
 const ilifeV3sImages = [
-  "/ILIFE V3s Pro Series Robot Vacuum/4fhGakAdl22rCwU0gtzXx5Sc57WC6S2QWEoHnKsGaLLNgamULVLtl3Gve7PDY_MtyEdElE7u_P17YOHFyf8Z_jq2ZlzEesQtiQrtAPYeYYrbbA8X5E8748YQWaYXWGCb3NRA2CtLgXHCaIzRhoRa04NxFpy2q-uHwtqOQty5c84XSle_xwp44RK5aaCHJo90.jpeg",
-  "/ILIFE V3s Pro Series Robot Vacuum/9bdih3fmBqUD6Yae2SVX4ESNbdnx4miIkyjNU2CvM9_G4Hy0sZBOXZ7omiyHsZtgPA6zgj62TYQnvl2Q86T26Qk_ve4W6PT6feNGw4WmXz8BmYcF03gc3sfNR76ArPZOobfmxv8M2ncmqrQPLNU5s-jtkfwuXKzIxqu_-XQYrNw-JXF9j7H-CxWFwUbgJIJo.jpeg",
-  "/ILIFE V3s Pro Series Robot Vacuum/E0xtou3NevoA1oDoMO81NwHHjV8LxwQsgzc3Ru19auaD-RuCaY1kz3AmecLIIFE5WGVi9cxmiSwdnck1j29H4L2D6g74l81LNBr4Ax9tIHCt0PVd6d_ozOsbbuNyVc-rZsvaotZ4qNKIo6LeAw_MjDXOZBsUB7lzEB_b5z2djB44oxs7w-VGqe9syNFnNVZL.jpeg",
-  "/ILIFE V3s Pro Series Robot Vacuum/OM67atK7a5NYP-UZfQcREpAmXZEa-PVMWg7VFINiclKOIKUpJtMN7VgR-N2xG4IBdL84AxunWim4793nIHVtmoSQ9f33Q_KbxmOLI3CrZz2UPYTxCgBTC-0iF-4ixi_GGYEkQCdlgskwjRxvfbz-Y7Q-DM_lgwIyFfJBW5Sh44oseIX0sFo262EiedlxM9ys.jpeg",
-  "/ILIFE V3s Pro Series Robot Vacuum/dDtZIN_Ma-swxOkuEE78sTuZWhRmAJI92jLDCUni1ohqdY7-gDYWc9BYOukn4cOUUYQ_zZw9pJBXec6y-osW7v9PamB2devJl4ee11Ne0BXtGJaVxja1zWgcBuCE1bFB5YNtPLj-jVj0VixB189tmWQ1mZgEDIam-ux05janNX6F_ZxM5qItnf9tXwbvSaBU.jpeg",
-  "/ILIFE V3s Pro Series Robot Vacuum/vlr92gwrllkyAzsw0PZs2bu92Q0soMCWJUg0d8QjzGdMbCqTWOG5tV7cnqi-BRnFmIb-hfUdQa_SE-gvEDy-Ygvm8BmABuB-hpNhIUxBRbLf1Au4e-tueAcMQ_ORuBabVoyYTwJKzMIXDQJmUYY1mhs_9Q5-e8ePmUj2wUGGNEabjS_rkNyBTyUHTVPhIruj.jpeg",
+  "/ilife-v3s-pro-series-robot-vacuum-1.jpeg",
+  "/ilife-v3s-pro-series-robot-vacuum-2.jpeg",
+  "/ilife-v3s-pro-series-robot-vacuum-3.jpeg",
+  "/ilife-v3s-pro-series-robot-vacuum-4.jpeg",
+  "/ilife-v3s-pro-series-robot-vacuum-5.jpeg",
+  "/ilife-v3s-pro-series-robot-vacuum-6.jpeg",
 ];
 
 const yeediK650Images = [
-  "/Yeedi k650 Pet Robot Vacuum/1hpye2Yhay0Czil_J7QVmTXBV5ddiz7TUAlu9EP1nzHBwlHkj1YTVE4lFKNpk_KmvQiec3Twsk5N1yxblCftG6AbNj46FpgGPuHnJFLWf_ZrHgE9if4Juvv9KMup1YDKr_hWcq996fv8cGDkHK0urh_Oa1DgyO5-CmhNmwIE9jRySJ4LkUe-x6DZBdoLNfhY.jpeg",
-  "/Yeedi k650 Pet Robot Vacuum/HnJvGeLeD0zvCwEu4vD0wmDVbsL9hY-N-bxcMQrzhUaJ9a9l_l3Tqc_RIIH6NfUn0hA434DwRMwuydYKxGOslyRlgm3qNiQ5vmQvCsZN2kTOIVrYbGTCtt6exaeB3zZOBsJwULpbTW4CsBz6RmjzdfnZUvtiNiE0KHKQ_v80-F9Gy6MtgrqeGZ25BuEMVatc.jpeg",
-  "/Yeedi k650 Pet Robot Vacuum/LqCIznI8ZGGOCYiWA3PE-cQ1OCqRA88hC7RxemBI5GudEHciDOzM4DNE00DPE0EejHtWfQnJuWLfaiil1RnfYH7QgpzPWd5X0-oJKE9tHZ-a1GcTRT8t2_MA1hxDJFqDPDAK43FRridv4jS3zj2G4SX1MAVo58s9jtMBqKDZLhFKRkWd1hxYUjFtrJZtz48t.jpeg",
-  "/Yeedi k650 Pet Robot Vacuum/YkismhEtsUkSQJhehmzrcaqyWb2uzwMLE1szAMpPb8EEDwg58t8dw6QB_Dtr3C4ezobtdQxykA4LFGNMvBGgkTWKjcGB9bGBE-ULiZaPHMunwhSZecTycsaxOrjLuPjOPiEFiAL4knFAfNx1oEAkT3Dw9IHKakqdA1VbQYiVtL-DPp5EnsHXbdqLMwF9-fxL.jpeg",
-  "/Yeedi k650 Pet Robot Vacuum/atWmo_dnbHi5PWh8Yy_5cSBDvv5cOLPS-YOgsMeTXN6olAu8nMjhrPdVma-5cUdsvFw0y6mxmG2iTn52a04NMyioqGYmX9fCbspZ6RwHMRa8jZNjVMGjIWDq-wrchfNop_wPKb8nALjVGIc3jhfnRRFaeYD_8XMl2AHnEBc5hLrPfUXK9aYLv-a0p2_QGL5E.jpeg",
-  "/Yeedi k650 Pet Robot Vacuum/kJbjdmepvWMd8inkm6zRax4KVXkiOO6kX9zR5W2oAuGM4UkWQR2hWo7gXUeQhmgfiinzt0cg-6oGotXCkliKPaZiXysmtpM9GJZZ-fTWmjW5Md_G1Zp4zrQe3hzwYUdmQxzGyIMNEvd8VBOe28BAjrq79F1g4nJr14_gqFkQ6fgqOOxHwDjWKJKLRHMxKrCl.jpeg",
-  "/Yeedi k650 Pet Robot Vacuum/q9IGR679TVsml5XbrtSYtkKlJvSc6uQ2BgcZ521mw8Y_Bs7do70DwrXGcb2V1dUsEl3UeI4UT9S5266V6WOtNfkIkdnWY8393LYaqJkSc3SQ3AmGeHbXePCDEXPnoeIq5xOOJ4BkBsI1XJOm-B3knL_6cm6QRq9OICIEyQxpsaCvCzPwDDwhhINohyZ4liHl.jpeg",
-  "/Yeedi k650 Pet Robot Vacuum/r_72QSGYxX1jyj3R2OpX2xYr9umlKVXUrRJbZrD1qBBgiqGixdlDoXv2zAgGYmcbfQpTUQnHp4dDtTgkSq1gWFFqaA3mHomC0nyHf2Y5JtszQEb9p4CuTNaqyfF2ACMS5432Mz9oMHpf2xVPNDmNchXStxVc7ChFLlyZ35SQdFaXu_l6w8d2EcExzOIHwIYL.jpeg",
+  "/yeedi-k650-pet-robot-vacuum-1.jpeg",
+  "/yeedi-k650-pet-robot-vacuum-2.jpeg",
+  "/yeedi-k650-pet-robot-vacuum-3.jpeg",
+  "/yeedi-k650-pet-robot-vacuum-4.jpeg",
+  "/yeedi-k650-pet-robot-vacuum-5.jpeg",
+  "/yeedi-k650-pet-robot-vacuum-6.jpeg",
+  "/yeedi-k650-pet-robot-vacuum-7.jpeg",
+  "/yeedi-k650-pet-robot-vacuum-8.jpeg",
 ];
 
 const qicenImages = [
-  "/Qicen Smart Robot Vacuum Cleaner/6624lRzVljgt-aY7YncNZ56Cfsp1-7DLgxn_W6k-9eZY-EoBdcS3ZSiQ-cquUINnYvfYrCAtk-hx1eNl5L8a-Isp5uSeeTxQVA5TX8UfgytQO39sMBXOUoXCvLthkNyg1eEZq6Z-SCNPqQNBdCFskvvpc_SBPwVZv8tU3-LdI6Vj1KzbTBAV5WCZhMEqKhPt.jpeg",
-  "/Qicen Smart Robot Vacuum Cleaner/As9FsbvRNKoL-akahDG5U0jHRl7TCt4HI9WDmIXLk4EtALyoL-G1vXh8u5jM-ojBOr85MUiDwZqtGkEN1SJ5ndC7kOg0PbxINmEOT6dzBKpOP94NHoe3bm2IvK_OX-KM4iODF886DUtCdxyB54kbzAZxf_VOOKd5OAhGE_oi8vKgs46gqLb135Agn0whlvLx.jpeg",
-  "/Qicen Smart Robot Vacuum Cleaner/QXWZuUbe7cKv09q-eRS3zmvWAvqKhCPlgwbvsooXu0iGUxgHCvEPBMv_IHgCa8EtpkI2vxPHoFnjkzh7EuI9QpQT_tqQpdZEwkCE0k6mrH8iTvLB5FZrcSYgFmkuN9qt-h5Mxzbjzxx_8FwBE7gSx4NLqPxnvV0b-i3gQE2Zo1p6T96CPvvgeGmPqd24nH5I.jpeg",
-  "/Qicen Smart Robot Vacuum Cleaner/VzvqTtPopwPVdtOYLdkm_KjHzR81hQvhAoR7Wxv8vGpGYKe9iyENiPijSAXHFPCNAOrZ68ZeMZG40Us9o-1e_1npUexDUXfbwUvskiiUu890EeyxC-Hzz_usattvkmrPjlZr3SdrSMndOrsYKNhri_t6pE6QTtMPY8GmZ0B6TiaReac0p_8Vwp7CCJ4TnjbE.jpeg",
-  "/Qicen Smart Robot Vacuum Cleaner/W6fNe5FTPwfv7c9uvMupvEh8OWrAiPNG6SccZuWZyKC7Is5dl4hUUaJIoqJRtfp1t7mUlT6OFEEV9t30B_yxKs0YVRn50rbIsyUWwI1yuW5kXwwaqtTckXgE98TuRmdKzTVmy2452R2PnOZEnsZJlNAnag9xnNOk7Rpok-cdQwrZYmproov8Z-blwMZWpvfN.jpeg",
-  "/Qicen Smart Robot Vacuum Cleaner/vZIG9f4wbvWYmUpyRKVrbfeoJzgrwjx7NjwlFmF7AGk4vk30WK0U_ra2SMFUe0N7H833UGqkqBfMhVk4IL-wih64BEheySbAYwoU6VIEsx_lkWaq1Ax6VVy1ABXC7w1Su9mhuN9yz40OFzWdbTlcUU0q25y69dkJUsaWigSIipu3eoA3dRkkUswke8nvQEet.jpeg",
+  "/qicen-smart-robot-vacuum-cleaner-1.jpeg",
+  "/qicen-smart-robot-vacuum-cleaner-2.jpeg",
+  "/qicen-smart-robot-vacuum-cleaner-3.jpeg",
+  "/qicen-smart-robot-vacuum-cleaner-4.jpeg",
+  "/qicen-smart-robot-vacuum-cleaner-5.jpeg",
+  "/qicen-smart-robot-vacuum-cleaner-6.jpeg",
 ];
 
 const airroboP20Images = [
-  "/AIRROBO P20 Suction Power Pro/-nEB4QWMeXsyCOYhwLuf3kt4AYdOs2Oc0BLoWEN0hknBUfDZ-f90HTL3K95SMPkZQW9RNLhL-hr7tabo_TJKOFVWdgDevdi4gRuoM29okhBF1rNLr6gVvzUCEp6R72-cMYjwkmXQ1-tcH_7ZchqMKytDSVhA-cFLXYX_R4klfeH2VFMENSDynCyjpT31IE2H.jpeg",
-  "/AIRROBO P20 Suction Power Pro/GFKY0zb1OxffUYoDIKPoPlr1TlJjKJHjyhRtaFleLg_gZyPbClpHjt5zeI7WOK8dqIxnusWODrQjext0qqLNn_XHeqf4ZWW2McyK_sX63-1XuLv7f5M3rjDxaHjU1YmdAlWxl4k9gf85yoej75B80rJPnPV-8FsyTn8D9MZaXQIiV8WixwL2-dwnuU6ON25R.jpeg",
-  "/AIRROBO P20 Suction Power Pro/TIXQUj2L8_ZXLJxc6ulGHm-Ql1NLPWbYUHUgW_WXSW1iFdJjCo-4JFal8jZKOTyV2EYFvbY4e0kJ-_boBD161Clc5ir2IyXKAyaMwP4a6cLQI2me5CXvYWJa7A849ZTwOOv7XNTHU9ZE1Kx_sX25wR5vwX73GBt1KpmQS9x8O71MPmBVVAZW2PkgZZDcwUL2.jpeg",
-  "/AIRROBO P20 Suction Power Pro/tvfL76DHtQZwgQFA2gn9FToH6BMzpLfbwiFLc54ntKjtfxD6OIJ0Yv8VeKJzHSP-Vnz0V-s9zjtvHZJaYI3ISZ_NnPzx8uczWdqzc3Pm9fOGhZsju0eh7YNBwAT0rBWnJDEOG3HHU-920Y3ypanJGODLqB6y88vmtX8_TB3d4vpl9v4OFvNMYB_5izhRMSPl.jpeg",
+  "/airrobo-p20-suction-power-pro-1.jpeg",
+  "/airrobo-p20-suction-power-pro-2.jpeg",
+  "/airrobo-p20-suction-power-pro-3.jpeg",
+  "/airrobo-p20-suction-power-pro-4.jpeg",
 ];
 
 const liectrouxC30BImages = [
@@ -157,41 +158,41 @@ const xiaomiS20Images = [
 ];
 
 const roborockS8Images = [
-  "/Roborock S8 Pro Ultra Robot Vacuum/801m6cCIesZ-Al4ynZHPZQ_VN7Rw-xSJ7a9PINyVET4oC-FnckOhRpjpvdQKJb9gvy1-KIoJO4DMhDRPH_cgy-M-_UZQYout7XrExncfVMmfce9PLb9xlJqf5Rbc39QYwn-vX907w-CMPGx_M6Rc10PkuzDZtiHOvnDN37imsmHOaYLqthIEAiRnCBsPAfHs.jpeg",
-  "/Roborock S8 Pro Ultra Robot Vacuum/D3EN0RH2lkqNxcubpOLaiiHqPif4XLgWD9FsMYd5vawj6luSftt_xee9VVBwu06xvOe2r45BguyHLVbYZ6dsyVY9clWQRIMF6I6VhsAoSPVJRGSjiCyNIWORj9hWQzKsQPqL7huxadEry8cNyIrzZznI1h-f4vb7MilCekjYNV_kzJwGZAkpm2AS_56mPamL.jpeg",
-  "/Roborock S8 Pro Ultra Robot Vacuum/_00dSCZytFO4BTz0UlZCOzGEgHnlv16zk2gYMzI7Std6QWZSV0akOGemZhoc0d_DYveFIg8RoJ9HyqRT0QvTNifl0O0I_F3ZBlIAt1qzvwazxVXPJRmAns8hJg738Fs6nnWfEPeACEN8vl8ZOdNzXXOshCedfYKG_62XteQSjKnODnniU_PrwiLn7W1oNDtX.jpeg",
-  "/Roborock S8 Pro Ultra Robot Vacuum/ca0AFcmQxakxooG08s0yC0W0NR5v2dV_YptaL1kJpBjhr8xel0l8PaFrV_SmcBBFYUebY74mIWUHAwy9z5jbx_Zi8E6e8pwJTsUOZ5JKL9unxWKcv1L8IGKhRTz8AD8B9lkLOUhpPTJ4uOcpXlgRYjnihYwEMGAwW7cDK_6tRZsBJew9qGkx3ZFJGUiH93db.jpeg",
-  "/Roborock S8 Pro Ultra Robot Vacuum/dX595ja8TKGCq1UMj_GeSRmtL6rZDiUmk-WoX_w3z25GzK_Js9C9xtl3zodMSaylL6hyIx7hrApXod2TxXFS4kcj2D3PkN-s7bqdYL_Y_c10OqMoNHVNLA_ZNp64mZ_fcc9jgQQUygsTnrmxcnSS1X68DT9Cv9Dlx9XLDld2V0KEUuzcnT-ZjbY-Zh6-R36g.jpeg",
-  "/Roborock S8 Pro Ultra Robot Vacuum/f7953x3wfdIMAOpkJfgTEfNd9xA--sFV-KQHKJLBUj21vF1BJJ8pbdvxR4fW--XCJUg4tBX_x5rU3DS388-ZSYbGw46xS19oFa9fnrMUZgrSuyrZQHbYRTY0rR-XeUAIGYf8Kp70nqXxiSO_JBPbD5AXHXFbch5VyPgXyGbU0ao4K63o0DckLi4asnkdMcJt.jpeg",
-  "/Roborock S8 Pro Ultra Robot Vacuum/p-wO5wTjejhJoQl-D6Lq22EVn89RAvY24tBXrlJNqiQUPuiOuzvd7L4KTO7AaHnNQxmrQ0gcoFDP2SmJ1SovvKBbAQn2NBxBXHbKJIAZ5yI_2SO_EbPA78mBm7zbBfZ68eZSROFfSp_S9h3JgyNSVi7Z9fFooY6E7OnZEWLFItyMmaxOF6IWnCuHczx8Tdl9.jpeg",
-  "/Roborock S8 Pro Ultra Robot Vacuum/ueFDg3T4DBm6cu74Ft1cMuH65hIrGFLt2ae4A9B9p9VzAwb8JXKxW7pmvp9LBxSEO9Q3qQ6JW-hZYBNpd4LbYCqcBB3CSUkwUgxKQ9lXtzNAkEPoWREfHX_ZDwMaTSPwlSdWfz2tuRIi-6-OPG1IyP9PYcfaMM80S22ozh9sTq9FodeJve7pxDnZ85Ma_gmr.jpeg",
+  "/roborock-s8-pro-ultra-robot-vacuum-1.jpeg",
+  "/roborock-s8-pro-ultra-robot-vacuum-2.jpeg",
+  "/roborock-s8-pro-ultra-robot-vacuum-3.jpeg",
+  "/roborock-s8-pro-ultra-robot-vacuum-4.jpeg",
+  "/roborock-s8-pro-ultra-robot-vacuum-5.jpeg",
+  "/roborock-s8-pro-ultra-robot-vacuum-6.jpeg",
+  "/roborock-s8-pro-ultra-robot-vacuum-7.jpeg",
+  "/roborock-s8-pro-ultra-robot-vacuum-8.jpeg",
 ];
 
 const dreameX30Images = [
-  "/Dreame X30 Ultra Robot Vacuum/2Bas7KvJj78l_vGLOtoEuHrwRywhU0fk03EvBuUyBCcI4A92DWNKQktrbL8aGJ37nV6qs-fvK4ZPl6UVqoCjLgENStJdJvN70sVhNt1_yRlVvN1OqaJAHohVKb0PlgWSRatMwjQtRdTD_98PWWqA95p9vPlMYi3rD5hmfMOyHwXCiGdXmiiYJUsQLmHsf-Th.jpeg",
-  "/Dreame X30 Ultra Robot Vacuum/88VWFFwDi1LagiNTvxgYRa3PCADfNjhbxouXeg8D9Gw0OkYRgZ0-SsSWzKSw0VRw2mLmXj8_PfYQxQ9LSwn3sSRgqkI7BeLyAzx1vtxfm9Qk8N3nA1xuAJHvSuABdBZy7_y1F7DiTKa1Ket050wMpkYfXwjBOPBTU7nDIb9PXhW1oeg3pheFn_Kbz9NHQQ_v.jpeg",
-  "/Dreame X30 Ultra Robot Vacuum/8Tiuqm8mCnBV5wWGHhk3Nv7jlhqaXjUIdwae57UmEyYP6tMv_hgIggzITzUZlVPMmsT_5ifGrxhfZ_ilN4eDt0_ZxXXETlWHGvr0rVLD7Wwxj4mxFQuYx4HYPTnEqgd02xowcvpO6mJNRwFCd2lzBcN9vWlmBQhEW8MmwUjhrS2N3lLAon3fb6yML0rmGGCZ.jpeg",
-  "/Dreame X30 Ultra Robot Vacuum/TjKPms_f6Dc3fjXRMOunahEn3T8-S8wdngrWPOHsLBz1if_Ir1DIP2AcxOYFYcCVOtt7YXf8oFJazA_Yq0NlfAYGh5Ah5LWMBN0fi72TTdl5uLbWAHBJpi2TzJRz62jwYBb7nYMAHDlHN9Hm9mhQ9NKEGOxcq4DK-HWzEDbJJUKezxjMWwm5qOb_kIkpBBAi.jpeg",
-  "/Dreame X30 Ultra Robot Vacuum/qAxL4tsX7Ru-uG20MjcLedVpbBdAmz4uAEPw5q7uJgbVEPHE9-3tBQeArL9zr3pS0Uf--xS_qTk-HBbd0cQzLxbUwpbVu6vSP8RgCwa4UbpB_nsiTwVdiGyprf7cw9vBtwVbOujt4NqF-75t03QvW1z68r-9BNZac_enMfAvSOhpJvAcxqVRbXBDDsnE2Pp9.jpeg",
-  "/Dreame X30 Ultra Robot Vacuum/swo3mcUg0aiWjBI-GGrgsupG_0nkzpkWp1OHt2N40Sqvuor8tMAuZO8PMU-UvL6SLwbNY50ZcpISmFzy-BNnur2GnABYHvomoVJ4iAUTjSAHQiDipE6lWEUoRQk818ntvR3FlEvn7vriCGGkgKonFNmWH0ay7g2eRr36rnShMWNp6xjdVfwzuWbTMnv0YPsp.jpeg",
+  "/dreame-x30-ultra-robot-vacuum-1.jpeg",
+  "/dreame-x30-ultra-robot-vacuum-2.jpeg",
+  "/dreame-x30-ultra-robot-vacuum-3.jpeg",
+  "/dreame-x30-ultra-robot-vacuum-4.jpeg",
+  "/dreame-x30-ultra-robot-vacuum-5.jpeg",
+  "/dreame-x30-ultra-robot-vacuum-6.jpeg",
 ];
 
 const ecovacsX2Images = [
-  "/Ecovacs Deebot X2 Omni Robot Vacuum/JhdVp5L15xU77jpMqadurGpVg7Ek9iQZak3viv-yMzn5huDB1uXabdunIjv7RPDa4nn_EIvk4zQdQQeWwUOJrp3cgd_7eX93s8x49Q14jnfUJrpqE_z6BEA4SSOCJMZOjpwqc1OA7WqUFX0Ppb9PyRg8IbZprCRwhAGDNe8afBM4Bf8_r8RYQzaeO9aobh-v.jpeg",
-  "/Ecovacs Deebot X2 Omni Robot Vacuum/P8zB9miVDr37Tn2DEIRGrg-P8Lggt33NLWRhSYN-GVcZVd-sKk8gXaC973IymNAYnENKAmWA2s8TOVbqQl_ReKzEWKe96fqRN71_qnhXBVmw9e7U4JCdUISh4Zc-idshyj1gXSq83fW_3tQIEjcnxmg5pF0XFfjE21nt3QpwJrOJvDQS7T0z5kmQmD_JUUtg.jpeg",
-  "/Ecovacs Deebot X2 Omni Robot Vacuum/e4f7EByvjz2tkVsiYbuxRm9DVzz6c6Z1sdWSst8_hqkn90FNhb-UYl2QlShMfHmQsa1RBN3VFK_vd8eQ1ZjB-GRGVr6Oxnz0Gu5sKcJSfStgR3k6tRznLJhDJtjzUe8BoOSmbwU8q2HEMFuIaPNmwjIf32lL5-L0pDcUPbO0gjADb7sMi4esDqm3NjLVrW9H.jpeg",
-  "/Ecovacs Deebot X2 Omni Robot Vacuum/l-1Q3vNKo8eLmdjD4XRyQi9WIN96XMv5V0F1f6X2e_vHChPUijakiM7vMUBX35lIS9b-595gUqrqkt-zsqaG1jWA2Y3WC0ZDiDDkT7MM-6o5y17J6idevCYcuvKnoqLj7A5ClfbjitiELOcBCt5X8cLpjMj_J27alyDOLLfgd24Vk873PuQOEUxBOW35oSVW.jpeg",
-  "/Ecovacs Deebot X2 Omni Robot Vacuum/uNBTIRTZLl8m4mEGtJwz2lUrOUw9W6eNlPc6QOjBfDh-1WxI-g7pnrNEYcMQwH4cWLgTrgZJb257RLrY6eeeVIo2k9jQVTk3Jb7w3sDWB-my0GRVQcXaJOlXubm1_uvNQGnF4Get1fveZM8jT7DCKdosVNwuGmBdTlDKmFa6qm7FePtpLM4cm2kYNJPcq-2-.jpeg",
-  "/Ecovacs Deebot X2 Omni Robot Vacuum/zLgVd-p7j2RN3jHsYvXGJl-mDR_fewY1bhAhAgDs1MO-MAPkyJe2Ry6ZpYvEW3VSc_2hCh3p8JrtYPx1D1UMeV7LNdJNdVsZf2OP1g9HgRjj_idqVGRCzdbcGfQIXaYhZCPlOGqCsplYUUDSz65vVy6yVVwKFFEd1gqPmrWzUyQpk7zcc117TbGJV9AcuCHQ.jpeg",
+  "/ecovacs-deebot-x2-omni-robot-vacuum-1.jpeg",
+  "/ecovacs-deebot-x2-omni-robot-vacuum-2.jpeg",
+  "/ecovacs-deebot-x2-omni-robot-vacuum-3.jpeg",
+  "/ecovacs-deebot-x2-omni-robot-vacuum-4.jpeg",
+  "/ecovacs-deebot-x2-omni-robot-vacuum-5.jpeg",
+  "/ecovacs-deebot-x2-omni-robot-vacuum-6.jpeg",
 ];
 
 const ilifeA10sImages = [
-  "/ILIFE A10s Robot Vacuum Cleaner/3K1zhVPdvdr52Pu3mU8MrMUjZ7OrGUfMxb_J38tD-_5D5YgIbH134JX8zmrvgNcBxy55UoFPpcHnJ25YNOoaRyvA6yKUvAZoFmTTO3XupQqHtF7hXvFDvkXsxUyXXD8ZcYUiul4-AppX2SZIhyivK86JwMK1i4wDp4Rfjzc5YDSX9ysOrJKkNzw3urF37XQR.jpeg",
-  "/ILIFE A10s Robot Vacuum Cleaner/Yq8HamWEu9EG3YMSW86fxhULJo-do602LsosAnRbRT2O4rk_VGXcJ92NLuJmPnT3vFNGdk5v5g1RWr_Ijc8giXzTowWTIlvPumclgxPxA-i2HoOr4hS71Ar8tfNEeRiELQPZJqs4zEWKOAmO-nmaDbra9m-m09QKozvD-T_NejcyfdvFAHiMz7JLWzh57NxQ.jpeg",
-  "/ILIFE A10s Robot Vacuum Cleaner/d9je7otTrkA42EP_KmJSRqMugj60hswmSz3_ogUdDhMqg_zpIZ4neCQcoPBLmvNyl9SnfxVCX6oLrDcpnHbU2mnjktCJA5KRm2y7i4D9qkVNfzAbrGsuoIsaxsK3Yx90zgIDDBWRUjyd3pm4gJM6gUvXI2JnZaGZgiIgdDXzHIoIxgwyikxDctP-bFE1imEe.jpeg",
-  "/ILIFE A10s Robot Vacuum Cleaner/tv4V2Zrj5kEV8V2pElI3rK_YZCIudm5dwj9_QjaHIHNNi9gatGOJmPW_Em0IRIyACaMfA5rRjKOrMBEHd4uOVTTFvMSQlbOyAVXGwSBcBjDrQz6BFt3D3rUpYBqqxqKLsmhwuPAK4OJcyvhWRUKkX1-kUIS5yxndfHXN4oiNcF-v4jbnRfs8QCMifAoCQkzo.jpeg",
-  "/ILIFE A10s Robot Vacuum Cleaner/tweTm7md88e99wB-djCBkq6wQz9rSly95Eo3niz4pBdQ0qS80dgsm5-NcNH1xHsESv-DBitT2B-GSAfQxZHt9xL_dVNqNhi-Q3wxSEB30XsErBgOTJ3PlnKfzkaGNs6bHCOwAWFVljGB1opGyVMqg3EYKiHFwRMa_eqT_lGb2UiIWSVNAjMOwcounK7Bj0pk.jpeg",
-  "/ILIFE A10s Robot Vacuum Cleaner/wXrAH4UgDUbOFq7DZJYc3oQe2wbZ0inj3buqiZHWpEu029f2bOOogVW0_rt6RND1wdOFvhqCkc7iRJLIhH8Hf5amWwvNNc7QIXb5K0DKrJq6-VgxP-ej6hEIVP7Svfpfn6JAqtznCnO0UHOUgSO-PEnn4Ib-Qz9TTTyvmPZz0jqdIkL2jX6heuRPr4_VR19l.jpeg",
+  "/ilife-a10s-robot-vacuum-cleaner-1.jpeg",
+  "/ilife-a10s-robot-vacuum-cleaner-2.jpeg",
+  "/ilife-a10s-robot-vacuum-cleaner-3.jpeg",
+  "/ilife-a10s-robot-vacuum-cleaner-4.jpeg",
+  "/ilife-a10s-robot-vacuum-cleaner-5.jpeg",
+  "/ilife-a10s-robot-vacuum-cleaner-6.jpeg",
 ];
 
 const irobotI3Images = [
@@ -204,37 +205,37 @@ const irobotI3Images = [
 ];
 
 const sharkAIImages = [
-  "/Shark AI Robot Vacuum with XL HEPA/EJzk4s--H8r0cld8Z1SSJm2a6nekGVArDzQ7aL2Gi0x3MWm7reF0soXvFsY4nAdHQcoydd3MqB-78ycyB2MAqzFS25pL3ot265fQGP0NgWZCIGb26fk9kKe1xcfCN5geVOgorEqOtbgJ5GIzV6GBsab6HRZ07QebLQIgTtguDu1WmvF3qT6o22iUsB_cd3Vf.jpeg",
-  "/Shark AI Robot Vacuum with XL HEPA/V5nCyFr5MvwtCdDECydwnqGoPWP5gQEXKFn2_nlfuX9IOSXP70GvSN7KVZc9rd0teFC3uEs6zY7CRWwkCdUvWGOhzd7FZVpM3rZScoyP2DDGJqtIFXA_9auFEpSZEAKkebKG0brwswIBG4cQ02AivFGHDH6zHpXSDWGliOe0fW4oMJBebCcjaWslK4OxnMEy.jpeg",
-  "/Shark AI Robot Vacuum with XL HEPA/YntQ8eEOVNq7Junvrp-5l7n92VRQ0X8ERRggA1N0kK6M4HAn6DIairMCHsJS7qoNv7V4xQNRLN4psU9zEKGy6YIZdekrAWKPgUxrOss_bRP9-S936NHAWdmuhPEVYaqbfhAVd5egsfanFYzWAwz4-r4uXmsXplHt7Vjg7N-LYkQ2aCU7whGsiijwpPTvVCtu.jpeg",
-  "/Shark AI Robot Vacuum with XL HEPA/hIWcQuRu3di_TCTtNzG7Td2CVyLT7zuKTCjhDuAi9ToyAjUtgxt2nzpEyXTpDm9FyzpH6OtjUgEeM5hxhb_otlgDIJidZ3eV1Vx_AL1baIaxxYcjNKHBfC9yE6qTXxi0kQ_iIRcJFmZzp9YSYI43roo8jREICh2Wlwv2PXToIxcSut9p2XhL70iFFtSCX4hX.jpeg",
-  "/Shark AI Robot Vacuum with XL HEPA/luG60QpFNVuL7FY_9w1eH6WkM90-EEJZNYy3lgqDVxLJS7tdqHNKV1Cu6MGpUwJHAQxdcTfWa0L5V-qUd9E9toWcgN02ILNv5keucPNKhLyWvqE_onTw5bZSzpetnQu0i2j3BZL5RTyzsfE4NxobNexDPPgDleTUxwDTf5B2bsir9qZGTt2JRY3O78RCpn_l.jpeg",
-  "/Shark AI Robot Vacuum with XL HEPA/ntq8Y8JlgzfQgsTeBEbJdNKwZ-NkOd8CemvVCfhvlbT4ZNneluA4G2igXoVPDpvPcDZAXYvaq0dJxyrvTA-oIkXAHh4BMKMwDCAK7R4uVzmwlQ5HinS95pRhV06jXURs1jXU8XYyDtJ3rYJMM3EYTLIU8oMsHXiH1nJV5W3zb0vdfWiU_I0KOJKv9xUP8rNw.jpeg",
+  "/shark-ai-robot-vacuum-with-xl-hepa-1.jpeg",
+  "/shark-ai-robot-vacuum-with-xl-hepa-2.jpeg",
+  "/shark-ai-robot-vacuum-with-xl-hepa-3.jpeg",
+  "/shark-ai-robot-vacuum-with-xl-hepa-4.jpeg",
+  "/shark-ai-robot-vacuum-with-xl-hepa-5.jpeg",
+  "/shark-ai-robot-vacuum-with-xl-hepa-6.jpeg",
 ];
 
 const eufyX8Images = [
-  "/Eufy RoboVac X8 Hybrid Robot Vacuum/0wYCtdcDX-gRzWwFxZIuFGJS-ZyGzHCkSBnRbpotzh6Zx1psMAvNUmUnR3UqgGuRgKLji4zc0AgD64QQknDkauYrIcb4QjDH5bGrZEsdlNsxISc_Fal4TqsddoddKChg9S0z7iwS_sBhhwp2qALtFtUafek8Mion6hWIjzvC-C7m7c-vAsAbQ4umNUqy9_Fm.jpeg",
-  "/Eufy RoboVac X8 Hybrid Robot Vacuum/3MuFjhB2cMSGsczVMzSYagms4Jkbo-GNNZ_wkL--9qy_4afOMWL7s7H7uCiB6yi3Zb3Vi3tZSPaHWZ-265G4Vrp52nv0n4WzADf67FzvFyQrZMuxkJWXc5qqdqLpV6Hhby3JKAd4qK6V6iYtOe_mL4n_QL9rblbn5jo7NJI-ju6-4WDgVKua41eg_ZbCY4q8.jpeg",
-  "/Eufy RoboVac X8 Hybrid Robot Vacuum/BnbCSp3yygpGceYaIXjsxhmexhaGQx5nHmCUPqXaykQ_J4pyG7Mcek8s5Jipf1s3jU27vbyZcRvVDlqChFjOZo-1XhJ79p8bTCAqKC4a_QLf0rrLgZCTT0A38ZQ4M0elnqVM22z7ZfYSknOHCUA8tRkNlM5twtJgAzuauzoEpYIB0QZRBJBwDInFIiq_moaM.jpeg",
-  "/Eufy RoboVac X8 Hybrid Robot Vacuum/FAOc-rCeLtSvdk8_JgW8ib7i8b7m6en9Pm0wXkkW44Hx0nv57oqrcxjTl65qqzndpn4v5hg-efTlUN3ka2cm76Y_iGfujHocE2SuPAn6mFEYcVLm3UIrd2xG5gbS-_qQ_p3Nu9HtEQxH58U8-Bn6D6YWm93YaBl0hXu-1bHnzqKJDHpjn8P70AQLb9bKI3wV.jpeg",
-  "/Eufy RoboVac X8 Hybrid Robot Vacuum/wPJRJ4lWfc5MGdrCKDUrXRnEmYFMXOUtTZ0V5VYxHGOEOv396Q3EnX4w_bdZhX2H4mT3a86vmswyDtf68bcyp22b3rJRuLuLTwhGEx89061OkQULMP3sXDhTQ6S2ZjuhlQyilalTryAwpQ2KgNQB1G9n5mPuukF8Vb42OZrUuvZOKCKy3V51xmNcdDR2toLw.jpeg",
+  "/eufy-robovac-x8-hybrid-robot-vacuum-1.jpeg",
+  "/eufy-robovac-x8-hybrid-robot-vacuum-2.jpeg",
+  "/eufy-robovac-x8-hybrid-robot-vacuum-3.jpeg",
+  "/eufy-robovac-x8-hybrid-robot-vacuum-4.jpeg",
+  "/eufy-robovac-x8-hybrid-robot-vacuum-5.jpeg",
 ];
 
 const yeediC12Images = [
-  "/Yeedi C12 Robot Vacuum Cleaner/2HmWk7ltkFjDdk_or2E9DQGfEIOfuahGIBfJ0xMhvEecC6ANYnxhEq02kDpUBhHA8pZswGiHsnnacNIXXUih1T3NjKKneMx_viJsSwiMmMaiPRorJmqkZxoW46_C5LRm3ou2XpeD49fitZAW5xys9ZOkxItcJpeX1tuBoCPCb4OUdHculK8tGhyWnx46LcbG.jpeg",
-  "/Yeedi C12 Robot Vacuum Cleaner/CMirqC3NfQejdQfDPuSMvK8SFxZOnmpUc-mGUVsJqMLPLjvzjbPnVeJNtUTAHjJumbOGWsTYAWLZCBdmyfWDsOyTIEwqYxJiYp-8QoAojA8YcjtVVTXtkIqfhE05b1DokagMIlSVxUneaWPoekIFLuk3jaNrxeh85Fzpz00Tz1xSX2zumPeEzSkI410Et6rx.jpeg",
-  "/Yeedi C12 Robot Vacuum Cleaner/UZiKCvsAMh0_QVsaeMobAPTGh3dWn_jQ3kQ-WIq5MyZKqGZdDbHr4rcDAoPAzdf3wCDm7WbZeRcwfbZslRpfUSdlu9oTq2Zrhlq-JEnlMyOhywv7lxqeqOYy-C_Libs5gLeCzM8I5rl8jCVUqgDkljbbZ4xYewNecg3DONcBBgEJFlZGdIXqHwGxZO-uqApQ.jpeg",
-  "/Yeedi C12 Robot Vacuum Cleaner/eahNF0q7yvYCY8iXrJcjhQfk3uh2-yRpCrpM0oJltrrOr69oke9ah_tjXtj3XNDxeMXKgmGjXFzvYc3H_lkJ-Incwpv7dKzq7OGd0Q-SnA6Ojy2qOu2xSyh3WtAo_gDsKnA4P3N79hBoUzGY-XmFmgfJghr7AQKatqJWn00cf7RkP2fA1zsxTPVbUjIq1YAc.jpeg",
-  "/Yeedi C12 Robot Vacuum Cleaner/haJqs3-8MhNmpn_a0mIGRpd6rFNfV0gTHx-wpWLOQobGK60yybnKnk3hKFYGWyOzS52yOV_ISVmeCiUGXbwuTGpYIoYZLK-cVPPhYDfqLFQ8X9pgPEdNQuO4Gn4CC0nnPbwU2JiFARTn4zB_KaO3vmWaUoizwJXZ_G4JnSj9wOqA6-iwM0HrG0PyKOCIn1B-.jpeg",
+  "/yeedi-c12-robot-vacuum-cleaner-1.jpeg",
+  "/yeedi-c12-robot-vacuum-cleaner-2.jpeg",
+  "/yeedi-c12-robot-vacuum-cleaner-3.jpeg",
+  "/yeedi-c12-robot-vacuum-cleaner-4.jpeg",
+  "/yeedi-c12-robot-vacuum-cleaner-5.jpeg",
 ];
 
 const neatoD10Images = [
-  "/Neato D10 Connected Robot Vacuum/DqlecYppnUuMmKGMPyBAFZ1hWs56W3jVeqYkI2dO6VRmYNjtPoMTafQfULUBOlxLGQMsrmIZ6Zb-mtTT3pE28y5Bv61hq01aN2ElCO1ynbTEl5GSeBgibdxnL_JukuiiKs6P3Y3JABKEJJeT7fDpCfdUJGF5WEwzfWB_NTHFFHIgA2IM1qliaHi9bxzYYsZe.jpeg",
-  "/Neato D10 Connected Robot Vacuum/W_6Is4lShvg4IqWDZ_0Nhw8mN_ovlaIXjM-_g9A5cSy8YvorPf8_2LhM4X-3tioLiObwahLUfnG5JM0cLPH-zIeMoSeuL2cVuUUjKkTh6V-0dO_ZQ2HzxuNKO2ayDLyVpT4zgaGAxrOvkVEpqvcuJZzu0RvmflibMJn3W7qnP8ErQ9wYKpTfBOyacR9_5Jt4.jpeg",
-  "/Neato D10 Connected Robot Vacuum/uPTyU9D7IUYIFG6-DUwjn-_5zy_f5kIAZooWjNxOmg7TvBJcjyZN-aWCQP1DQcF16_66Ko0rfolA2Qw8gb5wrkn9r8ebKnsRZtiICvcDCRg5C3rrO_iY_nwJKyhv0DvwU_NH9xzu7alz1pC7-kqtITvwDazN-jyrj-63NrqR4ybthsW-XXXFfeRuAYrcNLvn.jpeg",
-  "/Neato D10 Connected Robot Vacuum/vpQo_JqCbS1QxfYERY8yGyOBdIjA7m8VcgbRnaHqBZ3z7YLZEovb9hNlr40COzcsgdod-BAoC8K18wMXcPeluH9lXH94GV1f77trkezYFn0dK6bbSiWt0B3XJL3_ny_tdCvwFxPAKTGAkhbuDPHxyidrnnJApjM7fZJUIpJMdyJhHRSVwGSnYshik5n3316H.jpeg",
-  "/Neato D10 Connected Robot Vacuum/wm7T3OeJKyH7-H_4ABCT4EpXDWGT5oj4t5TSxsixjA-x0XT6dRsXn_kgqQ070G8RgAX0ddGE401I1mAbQNXKvkS_6GvhuAFN50XbbPJJXamR1TylkgqR6f-hFVUlvMKEhO6cL8Q7giaHN1-UGxpHWcEw3ZTVJWGKTd5ju7hT7Ee20V4GXc5c377UEq8F_7eK.jpeg",
-  "/Neato D10 Connected Robot Vacuum/ywCWBGTtpjd-cjwZXaHmbVuJ0f7apesSkM26zHhxQ8CX-tOGk4XdtMru8Oh1X9pMhdDEcUiAdDBnX1DMNDci53e0zkNkDF_p2GSqwHeza_qDTFKdiVwOkKKk0b4J03OwhOYi5gChzDubYcqC83BWUzHb4ss6W1CjSZEE4mjbxqzQP8KddwMXrpD-F8jahnes.jpeg",
+  "/neato-d10-connected-robot-vacuum-1.jpeg",
+  "/neato-d10-connected-robot-vacuum-2.jpeg",
+  "/neato-d10-connected-robot-vacuum-3.jpeg",
+  "/neato-d10-connected-robot-vacuum-4.jpeg",
+  "/neato-d10-connected-robot-vacuum-5.jpeg",
+  "/neato-d10-connected-robot-vacuum-6.jpeg",
 ];
 
 const samsungJetBotImages = [
@@ -328,6 +329,7 @@ const buildProduct = ({
   id,
   name,
   brand,
+  category = "Robot Vacuums",
   supplierPriceUSD,
   supplierPriceRange,
   minimumOrder,
@@ -347,6 +349,7 @@ const buildProduct = ({
   id: number;
   name: string;
   brand: string;
+  category?: "Robot Vacuums" | "Security" | "Lighting";
   supplierPriceUSD: string;
   supplierPriceRange: [number, number];
   minimumOrder: number;
@@ -369,6 +372,7 @@ const buildProduct = ({
     id,
     name,
     brand,
+    category,
     priceZAR,
     minOrder: `${minimumOrder} ${minimumOrder === 1 ? "unit" : "units"}`,
     features,
