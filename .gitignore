@@ -1,0 +1,17 @@
+# Dependencies
+node_modules
+.pnpm-store
+
+# Build outputs
+dist
+build
+
+# Environment variables
+.env
+.env.*
+
+# Public images (hosted externally)
+public/*.jpeg
+public/*.jpg
+public/*.png
+public/*.webp
