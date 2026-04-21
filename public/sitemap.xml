@@ -13,6 +13,42 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://smartnestsa.vercel.app/shipping-delivery</loc>
+    <lastmod>2026-04-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://smartnestsa.vercel.app/returns-refunds</loc>
+    <lastmod>2026-04-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://smartnestsa.vercel.app/privacy-policy</loc>
+    <lastmod>2026-04-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://smartnestsa.vercel.app/terms-of-service</loc>
+    <lastmod>2026-04-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://smartnestsa.vercel.app/contact</loc>
+    <lastmod>2026-04-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://smartnestsa.vercel.app/faq</loc>
+    <lastmod>2026-04-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://smartnestsa.vercel.app/product/1</loc>
     <lastmod>2026-04-21</lastmod>
     <changefreq>weekly</changefreq>
