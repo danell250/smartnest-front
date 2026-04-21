@@ -14,7 +14,6 @@ export interface CatalogProduct {
   id: number;
   name: string;
   brand: string;
-  category: "Robot Vacuums" | "Security" | "Lighting";
   priceZAR: number;
   minOrder: string;
   features: string[];
@@ -329,7 +328,6 @@ const buildProduct = ({
   id,
   name,
   brand,
-  category = "Robot Vacuums",
   supplierPriceUSD,
   supplierPriceRange,
   minimumOrder,
@@ -349,7 +347,6 @@ const buildProduct = ({
   id: number;
   name: string;
   brand: string;
-  category?: "Robot Vacuums" | "Security" | "Lighting";
   supplierPriceUSD: string;
   supplierPriceRange: [number, number];
   minimumOrder: number;
@@ -372,7 +369,6 @@ const buildProduct = ({
     id,
     name,
     brand,
-    category,
     priceZAR,
     minOrder: `${minimumOrder} ${minimumOrder === 1 ? "unit" : "units"}`,
     features,
