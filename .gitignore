@@ -11,7 +11,3 @@ build
 .env.*
 
 # Public images (hosted externally)
-public/*.jpeg
-public/*.jpg
-public/*.png
-public/*.webp
