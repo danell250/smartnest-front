@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import StoreAccountButton from "@/components/StoreAccountButton";
 import SiteFooter from "@/components/SiteFooter";
 
 export default function TrustPageLayout({
@@ -26,6 +27,7 @@ export default function TrustPageLayout({
             <Button asChild variant="ghost">
               <a href="/products">Products</a>
             </Button>
+            <StoreAccountButton variant="ghost" />
             <Button asChild>
               <a href="/contact">Contact</a>
             </Button>

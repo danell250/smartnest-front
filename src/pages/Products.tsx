@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import SiteFooter from "@/components/SiteFooter";
+import StoreAccountButton from "@/components/StoreAccountButton";
 import {
   Command,
   CommandEmpty,
@@ -122,6 +123,7 @@ export default function Products() {
             <span className="font-bold text-xl text-foreground">SmartNest SA</span>
           </div>
           <div className="flex items-center gap-4">
+            <StoreAccountButton />
             <button
               onClick={() => setLocation("/")}
               className="text-foreground hover:text-primary transition-colors font-medium"

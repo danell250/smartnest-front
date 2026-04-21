@@ -14,6 +14,7 @@ export default function SiteFooter() {
             <h4 className="font-semibold mb-4">Shop</h4>
             <ul className="space-y-2 text-sm opacity-75">
               <li><a href="/products" className="hover:opacity-100">Browse Products</a></li>
+              <li><a href="/account" className="hover:opacity-100">My Account</a></li>
               <li><a href="/faq" className="hover:opacity-100">FAQ</a></li>
               <li><a href="/shipping-delivery" className="hover:opacity-100">Shipping & Delivery</a></li>
             </ul>

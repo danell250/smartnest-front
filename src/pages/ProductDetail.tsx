@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import StoreAccountButton from "@/components/StoreAccountButton";
 import SiteFooter from "@/components/SiteFooter";
 import { catalogProducts, getProductById } from "@/data/catalog";
 import { Star, ChevronLeft, ShoppingCart, Heart, Check, Truck, Shield, RotateCcw, CheckCircle, ThumbsUp } from "lucide-react";
@@ -124,18 +125,21 @@ export default function ProductDetail({ params }: { params: { id: string } }) {
             />
             <span className="font-bold text-lg text-foreground">SmartNest SA</span>
           </div>
-          <button
-            onClick={() => setLocation("/cart")}
-            className="relative p-2 hover:bg-blue-50 rounded-lg transition-colors"
-            title="Shopping Cart"
-          >
-            <ShoppingCart className="w-6 h-6 text-foreground" />
-            {itemCount > 0 && (
-              <span className="absolute top-0 right-0 bg-primary text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold">
-                {itemCount}
-              </span>
-            )}
-          </button>
+          <div className="flex items-center gap-3">
+            <StoreAccountButton />
+            <button
+              onClick={() => setLocation("/cart")}
+              className="relative p-2 hover:bg-blue-50 rounded-lg transition-colors"
+              title="Shopping Cart"
+            >
+              <ShoppingCart className="w-6 h-6 text-foreground" />
+              {itemCount > 0 && (
+                <span className="absolute top-0 right-0 bg-primary text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold">
+                  {itemCount}
+                </span>
+              )}
+            </button>
+          </div>
         </div>
       </nav>
 

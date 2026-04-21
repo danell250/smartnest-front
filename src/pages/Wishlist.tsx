@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import StoreAccountButton from "@/components/StoreAccountButton";
 import { Star, Heart, ShoppingCart, ArrowLeft, Trash2 } from "lucide-react";
 import { useWishlist } from "@/contexts/WishlistContext";
 import { useCart } from "@/contexts/CartContext";
@@ -45,6 +46,7 @@ export default function Wishlist() {
             <span className="font-bold text-xl text-foreground">SmartNest SA</span>
           </div>
           <div className="flex items-center gap-4">
+            <StoreAccountButton />
             <button
               onClick={() => setLocation("/")}
               className="text-primary hover:text-blue-700 font-medium transition-colors"

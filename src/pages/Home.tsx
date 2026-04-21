@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import StoreAccountButton from "@/components/StoreAccountButton";
 import SiteFooter from "@/components/SiteFooter";
 import { Star, Zap, Droplet, MapPin, Smartphone, ArrowRight, ChevronLeft, ChevronRight, Shield, CheckCircle } from "lucide-react";
 import { useLocation } from "wouter";
@@ -55,6 +56,7 @@ export default function Home() {
             <button onClick={() => setLocation("/products")} className="text-foreground hover:text-primary transition-colors">Products</button>
           </div>
           <div className="flex items-center gap-4">
+            <StoreAccountButton />
             <button
               onClick={() => setLocation("/cart")}
               className="relative p-2 hover:bg-blue-50 rounded-lg transition-colors"

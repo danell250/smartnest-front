@@ -1,17 +1,18 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { useAuth } from "@/contexts/AuthContext";
 import { useCart } from "@/contexts/CartContext";
 import { storefrontInfo } from "@/data/storefront";
+import { API_BASE, getAuthHeaders } from "@/lib/api";
 import { ArrowLeft, AlertCircle, Truck } from "lucide-react";
 import { useLocation } from "wouter";
 import { useState, useEffect } from "react";
 import { PayPalButtons } from "@paypal/react-paypal-js";
 import { toast } from "sonner";
 
-const API_BASE = process.env.NODE_ENV === 'production' ? 'https://smartnestback.onrender.com' : 'http://localhost:3001';
-
 export default function Checkout() {
   const { items, getTotalPrice, clearCart } = useCart();
+  const { authToken, user } = useAuth();
   const [, setLocation] = useLocation();
   const [formData, setFormData] = useState({
     firstName: "",
@@ -43,6 +44,24 @@ export default function Checkout() {
       calculateShipping(formData.province);
     }
   }, [formData.province, items]);
+
+  useEffect(() => {
+    if (!user) {
+      return;
+    }
+
+    setFormData((prev) => ({
+      ...prev,
+      firstName: prev.firstName || user.firstName || "",
+      lastName: prev.lastName || user.lastName || "",
+      email: prev.email || user.email || "",
+      phone: prev.phone || user.phone || "",
+      address: prev.address || user.address || "",
+      city: prev.city || user.city || "",
+      postalCode: prev.postalCode || user.postalCode || "",
+      province: prev.province || user.province || prev.province,
+    }));
+  }, [user]);
 
   if (items.length === 0) {
     return (
@@ -110,7 +129,10 @@ export default function Checkout() {
     try {
       const response = await fetch(`${API_BASE}/api/checkout/paypal-order`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          ...getAuthHeaders(authToken),
+        },
         body: JSON.stringify({
           ...formData,
           items,
@@ -209,6 +231,12 @@ export default function Checkout() {
             <h1 className="text-2xl font-bold text-foreground mb-6">Checkout</h1>
 
             <Card className="p-5 space-y-6">
+              {user && (
+                <div className="rounded-lg border border-primary/20 bg-primary/5 p-4 text-sm text-muted-foreground">
+                  Checking out as <span className="font-semibold text-foreground">{user.firstName || user.email}</span>. Your account details were filled in for you, and you can still edit anything here before payment.
+                </div>
+              )}
+
               {/* Shipping Information */}
               <div className="space-y-4">
                 <h2 className="text-sm font-semibold text-foreground">Shipping Information</h2>
