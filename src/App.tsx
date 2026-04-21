@@ -22,6 +22,7 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import Contact from "./pages/Contact";
 import FAQ from "./pages/FAQ";
+import Logo from "./pages/Logo";
 import Admin from "./pages/Admin";
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 import { storefrontInfo } from "./data/storefront";
@@ -44,6 +45,7 @@ function Router() {
       <Route path="/contact" component={Contact} />
       <Route path="/faq" component={FAQ} />
       <Route path="/account" component={Account} />
+      <Route path="/logo" component={Logo} />
       <Route path="/404" component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />

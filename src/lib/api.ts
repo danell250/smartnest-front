@@ -16,7 +16,7 @@ export function clearStoredAuthToken() {
   localStorage.removeItem(AUTH_STORAGE_KEY);
 }
 
-export function getAuthHeaders(token = getStoredAuthToken()) {
+export function getAuthHeaders(token = getStoredAuthToken()): Record<string, string> {
   if (!token) {
     return {};
   }

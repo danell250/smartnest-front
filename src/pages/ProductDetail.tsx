@@ -3,7 +3,7 @@ import { Card } from "@/components/ui/card";
 import StoreAccountButton from "@/components/StoreAccountButton";
 import SiteFooter from "@/components/SiteFooter";
 import { catalogProducts, getProductById } from "@/data/catalog";
-import { Star, ChevronLeft, ShoppingCart, Heart, Check, Truck, Shield, RotateCcw, CheckCircle, ThumbsUp } from "lucide-react";
+import { Star, ChevronLeft, ShoppingCart, Heart, Check, Truck, Shield, RotateCcw, CheckCircle, ThumbsUp, Package, AlertTriangle } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useCart } from "@/contexts/CartContext";
 import { useWishlist } from "@/contexts/WishlistContext";
@@ -203,6 +203,34 @@ export default function ProductDetail({ params }: { params: { id: string } }) {
                 </div>
               </Card>
 
+              {/* Stock Status */}
+              {product.stock !== undefined && (
+                <div className={`flex items-center gap-2 p-3 rounded-lg border ${
+                  product.stock === 0
+                    ? "bg-red-50 border-red-200 text-red-700"
+                    : product.stock <= (product.lowStockThreshold || 5)
+                    ? "bg-amber-50 border-amber-200 text-amber-700"
+                    : "bg-green-50 border-green-200 text-green-700"
+                }`}>
+                  {product.stock === 0 ? (
+                    <>
+                      <AlertTriangle className="w-5 h-5" />
+                      <span className="font-semibold">Out of Stock</span>
+                    </>
+                  ) : product.stock <= (product.lowStockThreshold || 5) ? (
+                    <>
+                      <AlertTriangle className="w-5 h-5" />
+                      <span className="font-semibold">Low Stock - Only {product.stock} left!</span>
+                    </>
+                  ) : (
+                    <>
+                      <Package className="w-5 h-5" />
+                      <span className="font-semibold">In Stock ({product.stock} units available)</span>
+                    </>
+                  )}
+                </div>
+              )}
+
               {/* Quantity and Actions */}
               <div className="space-y-3">
                 <div className="flex items-center gap-3">
@@ -240,10 +268,11 @@ export default function ProductDetail({ params }: { params: { id: string } }) {
 
                 <Button
                   onClick={handleAddToCart}
-                  className="w-full bg-primary hover:bg-blue-700 text-white py-3 font-semibold gap-2"
+                  disabled={product.stock === 0}
+                  className="w-full bg-primary hover:bg-blue-700 text-white py-3 font-semibold gap-2 disabled:bg-gray-300 disabled:cursor-not-allowed"
                 >
                   <ShoppingCart className="w-4 h-4" />
-                  Add to Cart
+                  {product.stock === 0 ? "Out of Stock" : "Add to Cart"}
                 </Button>
               </div>
 

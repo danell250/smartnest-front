@@ -33,6 +33,8 @@ export interface CatalogProduct {
   };
   highlights: string[];
   reviews?: CatalogReview[];
+  stock?: number;
+  lowStockThreshold?: number;
 }
 
 const USD_TO_ZAR = 18.5;
@@ -353,6 +355,8 @@ const buildProduct = ({
   highlights,
   sourceUrl,
   reviews = [],
+  stock,
+  lowStockThreshold = 5,
 }: {
   id: number;
   name: string;
@@ -372,6 +376,8 @@ const buildProduct = ({
   highlights: string[];
   sourceUrl: string;
   reviews?: CatalogReview[];
+  stock?: number;
+  lowStockThreshold?: number;
 }): CatalogProduct => {
   const priceZAR = calculateRetailPrice(supplierPriceRange[1]);
 
@@ -394,10 +400,12 @@ const buildProduct = ({
       supplierPriceUSD,
       minimumOrder,
       dispatchWindow,
-      pricingNote: `Priced from the top of the Alibaba range using USD/ZAR ${USD_TO_ZAR} on ${FX_DATE}, a 25% landed-cost buffer, and a delivery-inclusive margin reserve.`,
+      pricingNote: `Based on high quote of $${supplierPriceRange[1]}`,
     },
     highlights,
     reviews,
+    stock,
+    lowStockThreshold,
   };
 };
 
@@ -430,6 +438,8 @@ export const catalogProducts: CatalogProduct[] = [
     ],
     sourceUrl: "https://www.alibaba.com/showroom/robot-vacuum-and-mop.html",
     reviews: defaultReviews,
+    stock: 12,
+    lowStockThreshold: 5,
   }),
   buildProduct({
     id: 2,
@@ -487,6 +497,8 @@ export const catalogProducts: CatalogProduct[] = [
     ],
     sourceUrl: "https://www.alibaba.com/showroom/best-robot-vacuum-cleaner-and-mop.html",
     reviews: defaultReviews,
+    stock: 8,
+    lowStockThreshold: 3,
   }),
   buildProduct({
     id: 4,
@@ -546,6 +558,8 @@ export const catalogProducts: CatalogProduct[] = [
     ],
     sourceUrl: "https://www.alibaba.com/showroom/robot-vacuum-and-mop.html",
     reviews: defaultReviews,
+    stock: 15,
+    lowStockThreshold: 5,
   }),
   buildProduct({
     id: 6,

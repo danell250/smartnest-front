@@ -11,7 +11,7 @@ import {
   CommandList,
 } from "@/components/ui/command";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import { Star, ChevronRight, ShoppingCart, ChevronDown, Search, X, Heart, Check, ChevronsUpDown } from "lucide-react";
+import { Star, ChevronRight, ShoppingCart, ChevronDown, Search, X, Heart, Check, ChevronsUpDown, AlertTriangle, Package } from "lucide-react";
 import { useState, useMemo } from "react";
 import { useCart } from "@/contexts/CartContext";
 import { useWishlist } from "@/contexts/WishlistContext";
@@ -287,6 +287,23 @@ export default function Products() {
                     <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm text-foreground px-2 py-1 rounded text-xs font-medium">
                       {product.brand}
                     </div>
+                    {product.stock !== undefined && (
+                      <div className={`absolute top-3 right-12 p-2 rounded-full backdrop-blur-sm ${
+                        product.stock === 0
+                          ? "bg-red-100/90 text-red-600"
+                          : product.stock <= (product.lowStockThreshold || 5)
+                          ? "bg-amber-100/90 text-amber-600"
+                          : "bg-green-100/90 text-green-600"
+                      }`}>
+                        {product.stock === 0 ? (
+                          <AlertTriangle className="w-4 h-4" />
+                        ) : product.stock <= (product.lowStockThreshold || 5) ? (
+                          <AlertTriangle className="w-4 h-4" />
+                        ) : (
+                          <Package className="w-4 h-4" />
+                        )}
+                      </div>
+                    )}
                     <button
                       onClick={(e) => {
                         e.stopPropagation();
@@ -329,6 +346,26 @@ export default function Products() {
                           <span className="text-xs text-muted-foreground line-clamp-1">{feature}</span>
                         </div>
                       ))}
+                      {product.stock !== undefined && (
+                        <div className="flex items-start gap-1 mt-2">
+                          {product.stock === 0 ? (
+                            <>
+                              <AlertTriangle className="w-3 h-3 text-red-500 flex-shrink-0 mt-0.5" />
+                              <span className="text-xs text-red-600 font-medium">Out of Stock</span>
+                            </>
+                          ) : product.stock <= (product.lowStockThreshold || 5) ? (
+                            <>
+                              <AlertTriangle className="w-3 h-3 text-amber-500 flex-shrink-0 mt-0.5" />
+                              <span className="text-xs text-amber-600 font-medium">Only {product.stock} left!</span>
+                            </>
+                          ) : (
+                            <>
+                              <Package className="w-3 h-3 text-green-500 flex-shrink-0 mt-0.5" />
+                              <span className="text-xs text-green-600">{product.stock} in stock</span>
+                            </>
+                          )}
+                        </div>
+                      )}
                     </div>
 
                     <div className="border-t border-border pt-3 space-y-2">
@@ -345,10 +382,11 @@ export default function Products() {
                         addToCart(product, 1);
                         toast.success(`${product.name} added to cart!`);
                       }}
-                      className="w-full bg-primary hover:bg-blue-700 text-white mt-3"
+                      disabled={product.stock === 0}
+                      className="w-full bg-primary hover:bg-blue-700 text-white mt-3 disabled:bg-gray-300 disabled:cursor-not-allowed"
                       size="sm"
                     >
-                      Add to Cart
+                      {product.stock === 0 ? "Out of Stock" : "Add to Cart"}
                     </Button>
                   </div>
                 </Card>
