@@ -23,6 +23,7 @@ import FAQ from "./pages/FAQ";
 import Admin from "./pages/Admin";
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 import { storefrontInfo } from "./data/storefront";
+import { Analytics } from "@vercel/analytics/react";
 
 function Router() {
   return (
@@ -72,6 +73,7 @@ function App() {
           </CartProvider>
         </ThemeProvider>
       </PayPalScriptProvider>
+      <Analytics />
     </ErrorBoundary>
   );
 }
