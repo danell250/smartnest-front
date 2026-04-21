@@ -106,9 +106,9 @@ export default function Home() {
 
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-transparent rounded-3xl blur-3xl"></div>
-              <div className="relative rounded-3xl shadow-2xl overflow-hidden">
-                <img 
-                  src={heroImages[currentSlide]} 
+              <div className="relative rounded-3xl shadow-2xl overflow-hidden h-[400px] md:h-[500px]">
+                <img
+                  src={heroImages[currentSlide]}
                   alt="Premium Robot Vacuum"
                   className="w-full h-full object-cover transition-opacity duration-500"
                 />
