@@ -53,6 +53,16 @@ const imagePool = [
   "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&q=80",
 ];
 
+const normalizePublicImagePath = (path: string) => {
+  if (/^https?:\/\//i.test(path)) {
+    return path;
+  }
+
+  const segments = path.split("/").filter(Boolean);
+  const fileName = segments[segments.length - 1] || path;
+  return `/${fileName}`;
+};
+
 const teendowImages = [
   "/teendow-d10s-max-robot-vacuum-1.jpg",
   "/teendow-d10s-max-robot-vacuum-2.jpg",
@@ -318,10 +328,10 @@ const formatMargin = (lowUsd: number, highUsd: number, retailPriceZAR: number) =
 };
 
 const buildImageSet = (offset: number) => [
-  imagePool[offset % imagePool.length],
-  imagePool[(offset + 1) % imagePool.length],
-  imagePool[(offset + 2) % imagePool.length],
-  imagePool[(offset + 3) % imagePool.length],
+  normalizePublicImagePath(imagePool[offset % imagePool.length]),
+  normalizePublicImagePath(imagePool[(offset + 1) % imagePool.length]),
+  normalizePublicImagePath(imagePool[(offset + 2) % imagePool.length]),
+  normalizePublicImagePath(imagePool[(offset + 3) % imagePool.length]),
 ];
 
 const buildProduct = ({
@@ -374,8 +384,8 @@ const buildProduct = ({
     features,
     rating,
     reviewCount,
-    image: image || imagePool[imageOffset % imagePool.length],
-    images: images || buildImageSet(imageOffset),
+    image: normalizePublicImagePath(image || imagePool[imageOffset % imagePool.length]),
+    images: (images || buildImageSet(imageOffset)).map(normalizePublicImagePath),
     description,
     specifications,
     supplier: {

@@ -31,6 +31,20 @@ const normalizePriceZAR = (value: number | string) => {
   return Number.isFinite(numericValue) ? numericValue : 0;
 };
 
+const normalizeImagePath = (value: string) => {
+  if (!value) {
+    return value;
+  }
+
+  if (/^https?:\/\//i.test(value)) {
+    return value;
+  }
+
+  const segments = value.split('/').filter(Boolean);
+  const fileName = segments[segments.length - 1] || value;
+  return `/${fileName}`;
+};
+
 export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [items, setItems] = useState<CartItem[]>([]);
 
@@ -45,6 +59,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
             parsedCart.map((item) => ({
               ...item,
               priceZAR: normalizePriceZAR(item.priceZAR),
+              image: normalizeImagePath(item.image),
             }))
           );
         }
@@ -80,7 +95,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
           description: product.description || '',
           priceZAR: normalizePriceZAR(product.priceZAR),
           quantity,
-          image: product.image,
+          image: normalizeImagePath(product.image),
         },
       ];
     });
