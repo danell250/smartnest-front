@@ -11,3 +11,9 @@ build
 .env.*
 
 # Public images (hosted externally)
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+!.env.example
